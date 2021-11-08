@@ -15,9 +15,11 @@ public abstract class Square {
     // Getters //
 
     public String getSquareName() {
-        return SquareName;
+        return this.SquareName;
     }
     public String getSquareDescription(){
         return SquareDescription;
     }
+
+    public abstract void landOnSquare (Player[] players, int player);
 }
