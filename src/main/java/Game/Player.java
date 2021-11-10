@@ -28,6 +28,10 @@ public class Player {
         return balance.getBalance();
     }
 
+    public void setBalance(int money){
+        balance.setBalance(money);
+    }
+
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
