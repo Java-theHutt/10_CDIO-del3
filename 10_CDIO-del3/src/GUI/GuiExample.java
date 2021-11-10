@@ -25,13 +25,13 @@ public class GuiExample extends JFrame implements ActionListener {
         button.setBackground(Color.GREEN);
         button.setFont(new Font("MV Boli",Font.BOLD,25));
         button.setBounds(225, 250, 150, 100);
-        label.setBounds(200,10,100,100);
+        label.setBounds(225,10,200,100);
         label.setFont(new Font("MV Boli",Font.BOLD,25));
         //adds the actionslistener to button. Everytime this button is clicked the Actionlisteners method runs.
         button.addActionListener(this);
         button.setFocusable(false);
 
-        panel.add(label);
+        this.add(label);
 
         this.add(button);
         this.add(panel);        //adds panel to frame
