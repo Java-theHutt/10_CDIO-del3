@@ -1,5 +1,10 @@
 package Squares;
 
+/*
+The class is created as an abstract class, so the rest
+of our square classes can inherit it's function for
+squareName, squareDescription.
+ */
 public abstract class Square {
 
     String SquareName;
@@ -15,7 +20,7 @@ public abstract class Square {
     // Getters //
 
     public String getSquareName() {
-        return this.SquareName;
+        return SquareName;
     }
     public String getSquareDescription(){
         return SquareDescription;

@@ -21,11 +21,15 @@ public class Amusements {
         // the price multiplier is 2, if not, then it's 1.
         int priceMultiplier = 1;
 
+        // NEEDS UPDATE
+
         // If no one owns the amusements, player buys it
         if (this.getOwner() ==-1){
             players[player].setScore(-this.getPrice());
             this.setOwner(player);
         }
-
+    }
+    public int getPrice(){
+        return price;
     }
 }

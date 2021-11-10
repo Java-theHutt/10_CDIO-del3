@@ -1,17 +1,23 @@
 package Squares;
+// import Player.Player;
 
 public class Jail extends Square {
 
-    public Jail (String squareName, String squareDescription){
-        super(squareName, squareDescription);
-        this.SquareName = "Fængsel";
-        this.SquareDescription = "Gå i fængsel";
+    private String occupiedBy;
+
+    public Jail (String occupiedBy){
+        super("Fængsel", "Gå i fængsel");
+        this.occupiedBy = occupiedBy;
     }
 
     public void landOnSquare(Player[] players, int player) {
-        // Rykker spiller til position 6, altså felt 7, som er fængslet.
-        // Samt udtrykker det som en boolean, så spillet ved at spilleren er i fængsel
+        /*
+        Moves the player to position 6 on the board, square 7, which is jail
+        Takes 3$ from the player, and puts it on the loose change square
+        */
+
         players[player].setPosition(6);
-        players[player].setInJail(true);
+
     }
+
 }
