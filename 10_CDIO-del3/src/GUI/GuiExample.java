@@ -13,8 +13,8 @@ public class GuiExample extends JFrame implements ActionListener {
 
     DiceCollection diceCollection = new DiceCollection();
     JButton button;
-    JLabel label;
-    JPanel panel;
+    JLabel label = new JLabel();
+    JPanel panel = new JPanel();
     ImageIcon monopoly = new ImageIcon("Monopoly.png");   //saves the imagefile in the variable monopoly
 
     int count = 0;
@@ -22,19 +22,24 @@ public class GuiExample extends JFrame implements ActionListener {
     public GuiExample(){
 
         button = new JButton("Roll Dice");
+        button.setBackground(Color.GREEN);
+        button.setFont(new Font("MV Boli",Font.BOLD,25));
+        button.setBounds(225, 250, 150, 100);
+        label.setBounds(200,10,100,100);
+        label.setFont(new Font("MV Boli",Font.BOLD,25));
+        //adds the actionslistener to button. Everytime this button is clicked the Actionlisteners method runs.
         button.addActionListener(this);
+        button.setFocusable(false);
 
-        label = new JLabel("Number of clicks");
+        panel.add(label);
 
-        panel = new JPanel();
-        panel.setPreferredSize(new Dimension(monopoly.getIconWidth(), monopoly.getIconHeight()));
-        panel.add(button);        //adds button to panel
-        panel.add(label);        //add label to panel
-
+        this.add(button);
         this.add(panel);        //adds panel to frame
+        this.setPreferredSize(new Dimension(monopoly.getIconWidth(), monopoly.getIconHeight()+30));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        //Exits the code when the frame is closed
         this.setTitle("Monopoly");      //sets title of the frame to monopoly
         this.pack();        //Makes the frame adjust its size to all the components, thats been implemented.
+        this.setResizable(false);
         this.setVisible(true);        //makes the frame visible
 
     }
@@ -50,9 +55,10 @@ public class GuiExample extends JFrame implements ActionListener {
     @Override
     //This method is performed when the button is pressed.
     public void actionPerformed(ActionEvent e) {
-
-        diceCollection.roll();
-        label.setText("You rolled" + diceCollection.getRollSum());
-        System.out.println("You rolled" + diceCollection.getRollSum());
+        if(e.getSource() == button){
+            diceCollection.roll();
+            label.setText("You rolled " + diceCollection.getRollSum());
+            System.out.println("You rolled " + diceCollection.getRollSum());
+        }
     }
 }
