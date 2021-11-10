@@ -1,48 +1,58 @@
 package GUI;
 
+import Game.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GuiExample implements ActionListener {
+//class extends the default Jframe class + implements an Actionlistener.
+//Actionlistener listens for an action, we define what the action is.
+//when the action is performed the ActionListeners default method (ActionPerformed) will run. We can override that method.
+public class GuiExample extends JFrame implements ActionListener {
 
-    JFrame frame;
+    DiceCollection diceCollection = new DiceCollection();
     JButton button;
     JLabel label;
     JPanel panel;
+    ImageIcon monopoly = new ImageIcon("Monopoly.png");   //saves the imagefile in the variable monopoly
 
     int count = 0;
 
     public GuiExample(){
-        frame = new JFrame();
 
-        button = new JButton("Start Game");
+        button = new JButton("Roll Dice");
         button.addActionListener(this);
 
         label = new JLabel("Number of clicks");
 
         panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
-        panel.setLayout(new GridLayout(0,1));
-        panel.add(button);
-        panel.add(label);
+        panel.setPreferredSize(new Dimension(monopoly.getIconWidth(), monopoly.getIconHeight()));
+        panel.add(button);        //adds button to panel
+        panel.add(label);        //add label to panel
 
-        frame.add(panel,BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Monopoly");
-        frame.pack();
-        frame.setVisible(true);
+        this.add(panel);        //adds panel to frame
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        //Exits the code when the frame is closed
+        this.setTitle("Monopoly");      //sets title of the frame to monopoly
+        this.pack();        //Makes the frame adjust its size to all the components, thats been implemented.
+        this.setVisible(true);        //makes the frame visible
 
     }
 
-    public static void main(String[] args) {
-        new GuiExample();
+    public void paint(Graphics g){
+        super.paint(g);
+
+        Graphics g2D = (Graphics) g;
+
+        g2D.drawImage(monopoly.getImage(),0,30,null);
     }
 
     @Override
+    //This method is performed when the button is pressed.
     public void actionPerformed(ActionEvent e) {
-        count++;
-        label.setText("Number og clicks " + count);
+
+        diceCollection.roll();
+        label.setText("You rolled" + diceCollection.getRollSum());
+        System.out.println("You rolled" + diceCollection.getRollSum());
     }
 }
