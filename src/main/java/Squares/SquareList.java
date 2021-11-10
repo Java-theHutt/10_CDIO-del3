@@ -1,5 +1,5 @@
 package Squares;
-import Squares.Square;
+// import Squares.Square;
 
 public class SquareList {
     private Square[] squareArray = new Square[24];
@@ -31,6 +31,29 @@ public class SquareList {
         allSquares[22] = new String[]{"Vandlandet", "M5", "blå"};
         allSquares[23] = new String[]{"Strandpromenaden", "M5", "blå"};
 
+    /*
+    A bunch of if/else statements, which checks the first collumn of the array
+    for the words "Start", "Chance", "I fængsel", "Gratis" and "Gå i fængsel" and initializes them
 
+    Also makes all occurences of "Chance" have the same object reference
+    regardless of it's array index, basically making em all copies.
+     */
+
+
+
+    }
+    // Creates a toString method for the
+    // specific squares name and description
+
+    public String toString(){
+        String squareString = "";
+        for (int i = 0; i < squareArray.length; i++){
+            squareString += squareArray[i].getSquareName() + " - " + squareArray[i].getSquareDescription()+"\n";
+        }
+        return squareString;
+    }
+
+    public Square[] getSquareArray() {
+        return squareArray;
     }
 }

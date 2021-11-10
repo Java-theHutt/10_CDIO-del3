@@ -1,6 +1,6 @@
 package Squares;
 
-public class Amusements {
+public class Amusements extends Square {
 
     private String squareColor;
     private int owner;
@@ -13,6 +13,7 @@ public class Amusements {
         this.owner = -1;
 
     }
+    @Override
     public void landOnSquare (Player[] players, int player){
     }
 
@@ -28,7 +29,32 @@ public class Amusements {
             players[player].setScore(-this.getPrice());
             this.setOwner(player);
         }
+        // If a different player owns
+        else if (this.getOwner() != player){
+
+            // Needs if statements for same owner of both colors
+            // Will set priceMultiplier = 2 in that case
+
+
+
+        }
     }
+    public String getSquareName() {
+        return SquareName;
+    }
+
+    public String getSquareDescription(){
+        return SquareDescription;
+    }
+
+    public String getSquareColor(){
+        return squareColor;
+    }
+
+    public int getOwner(){
+        return owner;
+    }
+
     public int getPrice(){
         return price;
     }
