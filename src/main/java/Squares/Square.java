@@ -1,5 +1,7 @@
 package Squares;
 
+import Game.Player;
+
 /*
 The class is created as an abstract class, so the rest
 of our square classes can inherit it's function for
