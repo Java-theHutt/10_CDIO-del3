@@ -1,5 +1,7 @@
 package Squares;
 
+import Game.Player;
+
 public class StartSquare extends Square {
 
     // Starting square of the game
@@ -9,5 +11,7 @@ public class StartSquare extends Square {
 
     }
 
-    public void landOnSquare (Player[] players, int player);
+    public void landOnSquare (Player[] players, int player){
+
+    }
 }
