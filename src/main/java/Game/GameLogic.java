@@ -11,12 +11,13 @@ public class GameLogic {
     private DiceCollection dice = new DiceCollection(2);
     private SquareList board = new SquareList();
     private int playeramount;
+    private int startingscore = 35;
 
     public void run(){}
 
     private void setupPlayers(){
         // Sets length of player array
-        players = new Player[getPlayerAmount()];
+        players = new Player[getPlayerAmount()-1];
 
 
         /*
@@ -31,6 +32,15 @@ public class GameLogic {
     }
     private void playerTurn(Player[] player){}
 
+    private void setupPlayerNames(){
+
+        for (int i = 0; i<playeramount;i++){
+            System.out.println("Spiller " + i+1 + ", indtast dit navn her: ");
+            String playername = userinput.nextLine();
+            Player player = new Player(playername, startingscore);
+            players[i] = player;
+        }
+    }
     //Helper function for setupPlayers
     private int getPlayerAmount(){
         System.out.println("Spillet er tilegnet 2-4 spillere. Indtast antal spillere her: ");
