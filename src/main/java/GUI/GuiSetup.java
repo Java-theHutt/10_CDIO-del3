@@ -24,8 +24,8 @@ public class GuiSetup extends JFrame implements ActionListener {
         button = new JButton("Roll Dice");
         button.setBackground(Color.GREEN);
         button.setFont(new Font("MV Boli",Font.BOLD,25));
-        button.setBounds(225, 250, 150, 100);
-        label.setBounds(225,10,200,100);
+        button.setBounds(250, 235, 150, 50);
+        label.setBounds(240,285,170,50);
         label.setFont(new Font("MV Boli",Font.BOLD,25));
         //adds the actionslistener to button. Everytime this button is clicked the Actionlisteners method runs.
         button.addActionListener(this);
