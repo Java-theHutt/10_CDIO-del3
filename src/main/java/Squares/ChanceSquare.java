@@ -1,5 +1,6 @@
 package Squares;
 
+import Game.Player;
 import java.util.Random;
 
 public class ChanceSquare extends Square {
