@@ -9,9 +9,10 @@ public class GameLogic {
     private final Scanner userinput = new Scanner(System.in);
     private Player[] players;
     private DiceCollection dice = new DiceCollection(2);
-    private SquareList board = new SquareList();
+    private SquareList square = new SquareList();
     private int playeramount;
     private int startingscore = 35;
+    private String playername;
 
     public void run(){
         setupPlayers();
@@ -25,13 +26,21 @@ public class GameLogic {
         setupPlayerNames();
 
     }
-    private void playerTurn(Player[] player){}
+    private void playerTurn(Player player){
+    }
+
+    private void playerRollDice (Player player){
+        System.out.println(player.getPlayerName() + ", rul terningerne! Tryk på vilkårlig tast for at rulle.");
+        userinput.nextLine();
+        dice.roll();
+        System.out.println(player.getPlayerName() + " lander på " + square.getSquareArray()[(dice.getRollSum())].getSquareName());
+    }
 
     //Sets player names and adds them to the player array
     private void setupPlayerNames(){
         for (int i = 0; i<playeramount;i++){
             System.out.println("Spiller " + i + ", indtast dit navn her: ");
-            String playername = userinput.nextLine();
+            playername = userinput.next();
             Player player = new Player(playername, startingscore);
             players[i] = player;
         }
