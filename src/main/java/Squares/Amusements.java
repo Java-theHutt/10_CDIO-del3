@@ -1,5 +1,7 @@
 package Squares;
 
+import Game.Player;
+
 public class Amusements extends Square {
 
     private String squareColor;
@@ -26,7 +28,7 @@ public class Amusements extends Square {
 
         // If no one owns the amusements, player buys it
         if (this.getOwner() ==-1){
-            players[player].setScore(-this.getPrice());
+            players[player].setBalance(-this.getPrice());
             this.setOwner(player);
         }
         // If a different player owns
@@ -49,6 +51,10 @@ public class Amusements extends Square {
 
     public String getSquareColor(){
         return squareColor;
+    }
+
+    public void setOwner(int owner) {
+        this.owner = owner;
     }
 
     public int getOwner(){

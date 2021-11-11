@@ -13,29 +13,24 @@ public class GameLogic {
     private int playeramount;
     private int startingscore = 35;
 
-    public void run(){}
+    public void run(){
+        setupPlayers();
+    }
 
     private void setupPlayers(){
         // Sets length of player array
-        players = new Player[getPlayerAmount()-1];
+        players = new Player[getPlayerAmount()];
 
+        // Sets player name and adds it to player array
+        setupPlayerNames();
 
-        /*
-        System.out.print("Player1 enter name: ");
-        this.player1 = new Player(userinput.next(),1000);
-        players[0] = this.player1;
-
-        System.out.print("Player2 enter name: ");
-        this.player2 = new Player(userinput.next(),1000);
-        players[1] = this.player2;
-        */
     }
     private void playerTurn(Player[] player){}
 
+    //Sets player names and adds them to the player array
     private void setupPlayerNames(){
-
         for (int i = 0; i<playeramount;i++){
-            System.out.println("Spiller " + i+1 + ", indtast dit navn her: ");
+            System.out.println("Spiller " + i + ", indtast dit navn her: ");
             String playername = userinput.nextLine();
             Player player = new Player(playername, startingscore);
             players[i] = player;
