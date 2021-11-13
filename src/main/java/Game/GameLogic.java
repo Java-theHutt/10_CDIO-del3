@@ -14,6 +14,7 @@ public class GameLogic {
     private int startingscore = 35;
     private String playername;
     private boolean running = true;
+    private String winner;
 
     public void run(){
         setupPlayers();
@@ -32,9 +33,19 @@ public class GameLogic {
 
         checkForLoss(player);
     }
+    // Checks for a winner when a loser is found and assigns player name to a winner variable
+    private void checkWinner(Player[] players){
+        int index = 0;
+        for (int i = 0; i < players.length; i++) {
+            if (players[index].getBalance() < players[i].getBalance()){
+                index = i;
+            }
+        winner = players[index].getPlayerName();
+        }
+    }
 
-    private void checkWinner(){
-
+    private String getWinner(){
+        return winner;
     }
 
     private void checkForLoss(Player player){
