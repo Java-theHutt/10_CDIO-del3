@@ -13,6 +13,7 @@ public class GameLogic {
     private int playeramount;
     private int startingscore = 35;
     private String playername;
+    private boolean running = true;
 
     public void run(){
         setupPlayers();
@@ -27,6 +28,19 @@ public class GameLogic {
 
     }
     private void playerTurn(Player player){
+        playerRollDice(player);
+
+        checkForLoss(player);
+    }
+
+    private void checkWinner(){
+
+    }
+
+    private void checkForLoss(Player player){
+        if (player.getBalance()==0){
+            running = false;
+        }
     }
 
     private void playerRollDice (Player player){
