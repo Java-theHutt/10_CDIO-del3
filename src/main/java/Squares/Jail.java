@@ -1,6 +1,8 @@
 package Squares;
 import Game.Player;
 
+import Game.Player;
+
 public class Jail extends Square {
 
     private String occupiedBy;

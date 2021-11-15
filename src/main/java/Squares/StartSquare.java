@@ -8,11 +8,7 @@ public class StartSquare extends Square {
 
     public StartSquare(){
     super("Start", "Hent 2kr i banken, når du passerer start");
-
     }
 
-    @Override
-    public void landOnSquare (Player[] players, int player){
-
-    }
+   public void landOnSquare (Player[] players, int player){}
 }

@@ -29,7 +29,7 @@ public class Amusements extends Square {
         // If no one owns the amusements, player buys it
         if (this.getOwner() ==-1){
             players[player].setBalance(-this.getPrice());
-        //    this.setOwner(player);
+            this.setOwner(player);
         }
         // If a different player owns
         else if (this.getOwner() != player){
@@ -51,6 +51,10 @@ public class Amusements extends Square {
 
     public String getSquareColor(){
         return squareColor;
+    }
+
+    public void setOwner(int owner) {
+        this.owner = owner;
     }
 
     public int getOwner(){
