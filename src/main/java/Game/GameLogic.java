@@ -13,11 +13,17 @@ public class GameLogic {
     private int playeramount;
     private int startingscore = 35;
     private String playername;
-    private boolean running = true;
+    private boolean gameDone = false;
     private String winner;
 
     public void run(){
         setupPlayers();
+        while (!gameDone) {
+            for (Player player : players) {
+                playerTurn(player);
+            }
+        }
+        getWinner(players);
     }
 
     private void setupPlayers(){
@@ -33,8 +39,10 @@ public class GameLogic {
 
         checkForLoss(player);
     }
-    // Checks for a winner when a loser is found and assigns player name to a winner variable
-    private void checkWinner(Player[] players){
+    // Finds a winner when a loser is found and assigns player name to a winner variable
+    //Helper method for getWinner
+
+    private void findWinner(Player[] players){
         int index = 0;
         for (int i = 0; i < players.length; i++) {
             if (players[index].getBalance() < players[i].getBalance()){
@@ -44,21 +52,22 @@ public class GameLogic {
         }
     }
 
-    private String getWinner(){
+    private String getWinner(Player[] players){
+        findWinner(players);
         return winner;
     }
 
     private void checkForLoss(Player player){
         if (player.getBalance()==0){
-            running = false;
+            gameDone = true;
         }
     }
 
     private void playerRollDice (Player player){
         System.out.println(player.getPlayerName() + ", rul terningerne! Tryk på vilkårlig tast for at rulle.");
-        userinput.nextLine();
+        userinput.next();
         dice.roll();
-        System.out.println(player.getPlayerName() + " lander på " + square.getSquareArray()[(dice.getRollSum())].getSquareName());
+        System.out.println(player.getPlayerName() + " lander på ");
     }
 
     //Sets player names and adds them to the player array
