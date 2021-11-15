@@ -5,8 +5,7 @@ public class Jail extends Square {
 
     private String occupiedBy;
 
-    public Jail (String occupiedBy){
-        super("Fængsel", "Gå i fængsel");
+    public Jail () { super("I Fængsel", "Betal M1, eller brug dit chancekort for at komme ud igen");
     }
 
     @Override
