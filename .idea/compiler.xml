@@ -9,8 +9,5 @@
         <module name="10_CDIO-del3" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="10_CDIO-del3" target="16" />
-    </bytecodeTargetLevel>
   </component>
 </project>
