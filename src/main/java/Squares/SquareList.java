@@ -1,4 +1,5 @@
 package Squares;
+import static java.lang.Integer.parseInt;
 // import Squares.Square;
 
 public class SquareList {
@@ -39,12 +40,37 @@ public class SquareList {
     regardless of it's array index, basically making em all copies.
      */
 
+    for (int i = 0; i < allSquares.length; i++){
+        if(allSquares[i][0].equals("Start")){
+            this.squareArray[i] = new StartSquare();
+        }
 
+        else if (allSquares[i][0].equals("Chance")){
+            if (i==3){
+                this.squareArray[i] = new ChanceSquare();
+            }
+            else {squareArray[i] = squareArray[3];}
+        }
 
+        else if (allSquares[i][0].equals("I fængsel") || allSquares[i][0].equals("Gratis")){
+            this.squareArray[i] = new SpecialSquare(allSquares[i][0], allSquares[i][1]);
+        }
+
+        else if (allSquares[i][0].equals("Gå i fængsel")){
+            this.squareArray[i] = new Jail();
+
+        }
+
+        else {
+            this.squareArray[i] = new Amusements(allSquares[i][0], allSquares[i][1], allSquares[i][2], parseInt(allSquares[i][1].substring(1)));
+        }
+      }
     }
+
     // Creates a toString method for the
     // specific squares name and description
 
+    @Override
     public String toString(){
         String squareString = "";
         for (int i = 0; i < squareArray.length; i++){
@@ -54,6 +80,6 @@ public class SquareList {
     }
 
     public Square[] getSquareArray() {
-        return squareArray;
+        return this.squareArray;
     }
 }
