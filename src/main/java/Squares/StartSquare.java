@@ -11,6 +11,7 @@ public class StartSquare extends Square {
 
     }
 
+    @Override
     public void landOnSquare (Player[] players, int player){
 
     }

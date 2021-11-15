@@ -9,6 +9,7 @@ public class Jail extends Square {
         super("Fængsel", "Gå i fængsel");
     }
 
+    @Override
     public void landOnSquare(Player[] players, int player) {
         /*
         Moves the player to position 6 on the board, square 7, which is jail

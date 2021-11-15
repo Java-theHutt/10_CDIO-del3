@@ -9,6 +9,7 @@ public class ChanceSquare extends Square {
         super("?", "Træk et chancekort fra bunken");
     }
 
+    @Override
     public void landOnSquare (Player[] players, int player){
 
     }
