@@ -4,7 +4,9 @@ import java.util.*;
 
 public class Cards {
 
-    private Card[] cardArray = new Card[24];
+    private final Card[] cardArray = new Card[20];
+    private int counter = 0;
+    private Card currentCard;
 
     public Cards(){
         createCards();
@@ -17,8 +19,14 @@ public class Cards {
         cardsList.toArray(cardArray);
     }
 
-    public Card[] getCards(){
-        return cardArray;
+    public Card pickACard(){
+        if(counter > cardArray.length){
+            shuffleCards();
+            this.counter = 0;
+        }
+        currentCard = cardArray[counter];
+        counter++;
+        return currentCard;
     }
 
     public int getID(Card card){
