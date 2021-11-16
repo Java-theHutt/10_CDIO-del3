@@ -1,6 +1,6 @@
 package Pieces;
 import Game.Player;
-import ChanceCards.Cards;
+import ChanceCards.*;
 
 public class Piece {
 
@@ -20,8 +20,8 @@ public class Piece {
         return this.squarePosition;
     }
 
-    public void performChanceCardAction(Cards[] card){
-        if(card.getID() <= 12){
+    public void performChanceCardAction(Card card){
+        if(cards.getID(card) <= 12){
 
         }
 

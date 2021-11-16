@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Cards {
 
-    private Card card;
     private Card[] cardArray = new Card[24];
 
     public Cards(){
@@ -16,6 +15,14 @@ public class Cards {
         List<Card> cardsList =  Arrays.asList(cardArray);
         Collections.shuffle(cardsList);
         cardsList.toArray(cardArray);
+    }
+
+    public Card[] getCards(){
+        return cardArray;
+    }
+
+    public int getID(Card card){
+        return card.getCardID();
     }
 
     private void createCards(){
@@ -37,16 +44,8 @@ public class Cards {
         cardArray[15] = new Card(16,"kekw","You have completed all of your homework. Therefore you receive M2 from the bank. Cheers!");
         cardArray[16] = new Card(17,"theCar","Give this card to the car and take new card. The car may move to any free field and buy it. If there is no free field, the car must buy a field from another player.");
         cardArray[17] = new Card(18,"theCat","Give this card to the cat and take new card. The cat may move to any free field and buy it. If there is no free field, the cat must buy a field from another player.");
-        cardArray[18] = new Card(19,"theCar","Give this card to the ship and take new card. The ship may move to any free field and buy it. If there is no free field, the ship must buy a field from another player.")
-        cardArray[19] = new Card(20,"theCar","Give this card to the dog and take new card. The dog may move to any free field and buy it. If there is no free field, the dog must buy a field from another player.")
-    }
-
-    public Card[] getCards(){
-        return cardArray;
-    }
-
-    public int getID(Card card){
-        return card.getCardID();
+        cardArray[18] = new Card(19,"theCar","Give this card to the ship and take new card. The ship may move to any free field and buy it. If there is no free field, the ship must buy a field from another player.");
+        cardArray[19] = new Card(20,"theCar","Give this card to the dog and take new card. The dog may move to any free field and buy it. If there is no free field, the dog must buy a field from another player.");
     }
 
 }
