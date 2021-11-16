@@ -19,14 +19,17 @@ public class Cards {
         cardsList.toArray(cardArray);
     }
 
-    public Card pickACard(){
+    public Card getCurrentCard(){
+        return currentCard;
+    }
+
+    public void pickACard(){
         if(counter > cardArray.length){
             shuffleCards();
             this.counter = 0;
         }
         currentCard = cardArray[counter];
         counter++;
-        return currentCard;
     }
 
     public int getID(Card card){
