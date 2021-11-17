@@ -45,6 +45,8 @@ public class Piece {
                 moveOneToFive();
             }else if(card.getCardID() == 5){
                 goOrThrowAction();
+            }else if(card.getCardID() > 5 && card.getCardID() <= 8){
+
             }
         }
 
