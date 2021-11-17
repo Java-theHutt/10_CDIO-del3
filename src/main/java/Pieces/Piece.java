@@ -10,10 +10,47 @@ public class Piece {
     private SquareList squareList = new SquareList();
     private final Cards cards = new Cards();
     private int piecePosition = 0;
+    private String spiritName;
+    private int spiritID;
+    private boolean hasSpiritCard = false;
     private Player player;
 
-    public Piece(){
+    public Piece(String spiritName, int spiritID){
+        this.spiritName = spiritName;
+        this.spiritID = spiritID;
+        
+    }
 
+    public void checkForSpiritCard(int chanceCardID, int index){
+        if(chanceCardID > 16 && chanceCardID <= 20){
+            if(chanceCardID == pieces[index].getSpiritID){
+                pieces[index].setSpiritCardStatus(true);
+                pieces[index].performSpiritCardAction();
+            }else{
+                modifySpiritCardStatus(chanceCardID);
+            }
+        }
+
+    }
+
+    public void modifySpiritCardStatus(int chanceCardID){
+        for (int i = 0; i < pieces.length; i++) {
+            if(pieces[i].getSpiritID() == chanceCardID){
+                setSpiritCardStatus(true);
+            }
+        }
+    }
+
+    public void setSpiritCardStatus(boolean bool){
+        this.hasSpiritCard = bool;
+    }
+
+    public boolean getSpiritCardStatus(){
+        return hasSpiritCard;
+    }
+
+    public int getSpiritID(){
+        return spiritID;
     }
 
     /**
@@ -37,7 +74,7 @@ public class Piece {
      * Involves any action from the chancecardss that involves moving the piece.
      * @param card
      */
-    public void performChanceCardAction(Card card){
+    public void movePieceChanceCardActions(Card card){
         if(card.getCardID() <= 12){
             if(card.getCardID() <= 3){
                 moveToSquare(card.getAction());
