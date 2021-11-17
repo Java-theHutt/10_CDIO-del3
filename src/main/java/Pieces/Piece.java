@@ -22,7 +22,7 @@ public class Piece {
      */
     public void setPiecePosition(int roll){
         this.piecePosition += roll;
-        this.piecePosition = this.piecePosition % 24;
+        moveToSquare(this.piecePosition % 24);
     }
 
     public int getPiecePosition(){
@@ -40,31 +40,42 @@ public class Piece {
     public void performChanceCardAction(Card card){
         if(card.getCardID() <= 12){
             if(card.getCardID() <= 3){
-                this.piecePosition = card.getAction();
+                moveToSquare(card.getAction());
             }else if(card.getCardID() == 4){
-                System.out.print("Enter a number from 0 to 5, to move forward: ");
-                int num;
-                while(true){
-                    num = scan.nextInt();
-                    if(num >= 0 && num <= 5){
-                        this.piecePosition += num;
-                        break;
-                    }else
-                        System.out.println("Input not valid. Enter a number from 0 to 5!");
-                }
+                moveOneToFive();
             }else if(card.getCardID() == 5){
-                System.out.println("Choose between moving 1 field forward or take a new chance card");
-                System.out.println("If you want to move type m, else type anything else to receive new chance card");
-                String input = scan.next();
-                if (input.charAt(0) == 'm'){
-                    this.piecePosition += 1;
-                }else {
-                    cards.pickChanceCard();
-                }
-
+                goOrThrowAction();
             }
         }
 
+    }
+
+    private void goOrThrowAction() {
+        System.out.println("Choose between moving 1 field forward or take a new chance card");
+        System.out.println("If you want to move type m, else type anything else to receive new chance card");
+        String input = scan.next();
+        if (input.charAt(0) == 'm'){
+            this.piecePosition += 1;
+        }else {
+            cards.pickChanceCard();
+        }
+    }
+
+    private void moveToSquare(int action) {
+        this.piecePosition = action;
+    }
+
+    private void moveOneToFive() {
+        System.out.print("Enter a number from 0 to 5, to move forward: ");
+        int num;
+        while(true){
+            num = scan.nextInt();
+            if(num >= 0 && num <= 5){
+                this.piecePosition += num;
+                break;
+            }else
+                System.out.println("Input not valid. Enter a number from 0 to 5!");
+        }
     }
 
 
