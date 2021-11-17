@@ -54,6 +54,10 @@ public class Piece {
 
     }
 
+    /**
+     * Each case represents two colors from a chancecard. The paratmeters in each method is therefore the squares connected to those colors.
+     * @param card
+     */
     private void doubleColorAction(Card card) {
         switch (card.getCardID()) {
             case 9 -> moveToTwoColorAction(7, 8, 22, 23);
@@ -63,6 +67,13 @@ public class Piece {
         }
     }
 
+    /**
+     * Each parameter represents a square, tied to one of the two colors from the chancecard. The player will select what square the player wants to move to.
+     * @param square1Number
+     * @param square2Number
+     * @param square3Number
+     * @param square4Number
+     */
     public void moveToTwoColorAction(int square1Number,int square2Number,int square3Number,int square4Number){
         System.out.println("You pulled the card " + cards.getCurrentCard().getCardName());
         //System.out.print("Therefore you may choose to go to 1 of 4 squares: - " + getSquareName(square1Number,0) + " enter 1 - "
