@@ -33,6 +33,10 @@ public class Piece {
 
     }
 
+    /**
+     * Involves any action from the chancecardss that involves moving the piece.
+     * @param card
+     */
     public void performChanceCardAction(Card card){
         if(card.getCardID() <= 12){
             if(card.getCardID() <= 3){

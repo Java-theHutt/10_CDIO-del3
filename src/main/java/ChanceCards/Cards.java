@@ -13,10 +13,13 @@ public class Cards {
         shuffleCards();
     }
 
+    /**
+     * Shuffles the array of chancecards.
+     */
     private void shuffleCards() {
-        List<Card> cardsList =  Arrays.asList(cardArray);
-        Collections.shuffle(cardsList);
-        cardsList.toArray(cardArray);
+        List<Card> cardsList =  Arrays.asList(cardArray); //Copies the contest of cardArray over to a list
+        Collections.shuffle(cardsList); //Uses the shufflemethod from the collections class on that list
+        cardsList.toArray(cardArray); //Copies the shuffled content back into cardArray.
     }
 
     public Card getCurrentCard(){
