@@ -21,6 +21,14 @@ public class Piece {
         
     }
 
+    /**
+     * [Move to gamelogic] checks if the pulled chance card is a spiritcard.
+     * Then checks if the player who pulled the card, owns the given spirit.
+     * If the player doesn't own the card, he gives it to the owner with the modifySpiritCardStatus method.
+     * Then the current player pulls a new card.
+     * @param chanceCardID
+     * @param index
+     */
     public void checkForSpiritCard(int chanceCardID, int index){
         if(chanceCardID > 16 && chanceCardID <= 20){
             if(chanceCardID == pieces[index].getSpiritID){
@@ -28,11 +36,16 @@ public class Piece {
                 pieces[index].performSpiritCardAction();
             }else{
                 modifySpiritCardStatus(chanceCardID);
+                cards.pickChanceCard();
             }
         }
-
     }
 
+    /**
+     * [Move to gamelogic] Sets the spiritcardStatus to true, for the piece that owns the pulled spirit card.
+     * Is only called when a player pulls another players spiritcard.
+     * @param chanceCardID
+     */
     public void modifySpiritCardStatus(int chanceCardID){
         for (int i = 0; i < pieces.length; i++) {
             if(pieces[i].getSpiritID() == chanceCardID){
