@@ -16,8 +16,13 @@ public class Piece {
 
     }
 
+    /**
+     * Calculates and sets a pieces position on the board.
+     * @param roll
+     */
     public void setPiecePosition(int roll){
         this.piecePosition += roll;
+        this.piecePosition = this.piecePosition % 24;
     }
 
     public int getPiecePosition(){
