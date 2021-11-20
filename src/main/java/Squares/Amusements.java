@@ -37,13 +37,13 @@ public class Amusements extends Square {
         // Needs position method from either player or piece
 
         else if (this.getOwner() != player){
-            if (squares[players[player].getPiecePosition()-1] instanceof Amusements){
-                if (((Amusements) squares[players][player].getPiecePosition()-1]).getOwner() == this.getOwner())){
+            if (squares[players[player].getpiecePosition()-1] instanceof Amusements){
+                if (((Amusements) squares[players][player].getpiecePosition()-1]).getOwner() == this.getOwner())){
                     priceMultiplier = 2;
                 }
             }
-            else if(squares[players[player].getPiecePosition()+1] instanceof Amusements){
-                if(((Amusements) squares[(players[player].getPiecePosition()+1)%24]).getOwnedBy() == this.getOwner()){
+            else if(squares[players[player].getpiecePosition()+1] instanceof Amusements){
+                if(((Amusements) squares[(players[player].getpiecePosition()+1)%24]).getOwnedBy() == this.getOwner()){
                     priceMultiplier = 2;
         }
     }

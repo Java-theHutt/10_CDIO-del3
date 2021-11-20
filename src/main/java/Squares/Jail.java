@@ -1,5 +1,6 @@
 package Squares;
 import Game.Player;
+import Pieces.Piece;
 
 
 public class Jail extends Square {
@@ -16,7 +17,7 @@ public class Jail extends Square {
         Takes 3$ from the player, and puts it on the loose change square
         */
 
-         // players[player].SetPosition(6);
+         players[player].setpiecePosition(6);
          players[player].setBalance(-3);
     }
 
