@@ -12,11 +12,8 @@ public class ChanceSquare extends Square {
 
     public void landOnSquare (Player[] players, int player){
 
-    }
 
-    // Skal udvides med at trække og blande chance kort.
-
-    public static void drawChanceCard(){
 
     }
 }
+
