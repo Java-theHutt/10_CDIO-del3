@@ -1,11 +1,12 @@
 package Squares;
 import Game.Player;
+import Game.GameLogic;
 import Pieces.Piece;
 
 public class Amusements extends Square {
 
     private String squareColor;
-    private int owner;
+    private Player[] owner;
     private int price;
 
     public Amusements (String name, String description, String color, int price){
