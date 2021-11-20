@@ -79,6 +79,10 @@ public class SquareList {
         return squareString;
     }
 
+    public String getSquareName(){
+        return squareArray[0].getSquareName();
+    }
+
     public Square[] getSquareArray() {
         return this.squareArray;
     }
