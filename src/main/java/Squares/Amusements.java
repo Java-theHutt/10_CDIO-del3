@@ -1,5 +1,4 @@
 package Squares;
-
 import Game.Player;
 
 public class Amusements extends Square {
@@ -16,7 +15,8 @@ public class Amusements extends Square {
 
     }
     @Override
-    public void landOnSquare (Player[] players, int player){
+    public void landOnSquare (Player[] players, int player) {
+
     }
 
     public void landOnSquare (Player[] players, int player, Square[] squares){
@@ -31,16 +31,23 @@ public class Amusements extends Square {
             players[player].setBalance(-this.getPrice());
             this.setOwner(player);
         }
-        // If a different player owns
+        // If a different player owns it, also checks if said player owns both of same color
         else if (this.getOwner() != player){
-
-            // Needs if statements for same owner of both colors
-            // Will set priceMultiplier = 2 in that case
-
-
-
+            if (squares[players[player].getPosition()-1] instanceof Amusements){
+                if (((Amusements) squares[players][player].getPositon()-1]).getOwner() == this.getOwner())){
+                    priceMultiplier = 2;
+                }
+            }
+            else if(squares[players[player].getPosition()+1] instanceof Amusements){
+                if(((Amusements) squares[(players[player].getPosition()+1)%24]).getOwnedBy() == this.getOwner()){
+                    priceMultiplier = 2;
         }
     }
+            players[player].setBalance(-this.getPrice() * priceMultiplier);
+            players[this.getOwner()].setBalance(this.getPrice() * priceMultiplier);
+        }
+    }
+
     public String getSquareName() {
         return SquareName;
     }
@@ -53,13 +60,11 @@ public class Amusements extends Square {
         return squareColor;
     }
 
-    public void setOwner(int owner) {
-        this.owner = owner;
-    }
-
     public int getOwner(){
         return owner;
     }
+
+    public void setOwner(int owner);
 
     public int getPrice(){
         return price;
