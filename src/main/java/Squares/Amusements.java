@@ -43,8 +43,8 @@ public class Amusements extends Square {
                     priceMultiplier = 2;
         }
     }
-            players[player].setBalance(-this.getPrice() * priceMultiplier);
-            players[this.getOwner()].setBalance(this.getPrice() * priceMultiplier);
+            players[player].updateScore(-this.getPrice() * priceMultiplier);
+            players[this.getOwner()].updateScore(this.getPrice() * priceMultiplier);
         }
     }
 
