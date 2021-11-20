@@ -2,18 +2,23 @@ package Pieces;
 import Game.Player;
 import ChanceCards.*;
 import Squares.*;
+
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Piece {
 
     private Scanner scan = new Scanner(System.in);
     private SquareList squareList = new SquareList();
+    private List<Integer> squaresOwned = new ArrayList();
     private final Cards cards = new Cards();
     private int piecePosition = 0;
     private String spiritName;
     private int spiritID;
     private boolean hasSpiritCard = false;
     private Player player;
+
 
     public Piece(String spiritName, int spiritID){
         this.spiritName = spiritName;
@@ -29,7 +34,7 @@ public class Piece {
      * @param chanceCardID
      * @param index
      */
-    public void checkForSpiritCard(int chanceCardID, int index){
+    /*public void checkForSpiritCard(int chanceCardID, int index){
         if(chanceCardID > 16 && chanceCardID <= 20){
             if(chanceCardID == pieces[index].getSpiritID){
                 pieces[index].setSpiritCardStatus(true);
@@ -39,19 +44,23 @@ public class Piece {
                 cards.pickChanceCard();
             }
         }
-    }
+    }*/
 
     /**
      * [Move to gamelogic] Sets the spiritcardStatus to true, for the piece that owns the pulled spirit card.
      * Is only called when a player pulls another players spiritcard.
-     * @param chanceCardID
+     //* @param chanceCardID
      */
-    public void modifySpiritCardStatus(int chanceCardID){
+    /*public void modifySpiritCardStatus(int chanceCardID){
         for (int i = 0; i < pieces.length; i++) {
             if(pieces[i].getSpiritID() == chanceCardID){
                 setSpiritCardStatus(true);
             }
         }
+    }*/
+
+    public void addSquaresOwned(int squarePositions){
+        squaresOwned.add(squarePositions);
     }
 
     public void setSpiritCardStatus(boolean bool){
