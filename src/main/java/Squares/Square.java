@@ -11,6 +11,7 @@ public abstract class Square {
 
     String SquareName;
     String SquareDescription;
+    int price;
 
     // Constructor //
 
@@ -26,6 +27,10 @@ public abstract class Square {
     }
     public String getSquareDescription(){
         return SquareDescription;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     // Abstract method used by the individual squares

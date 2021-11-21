@@ -12,8 +12,8 @@ public class Amusements extends Square {
     public Amusements (String name, String description, String color, int price){
         super(name, description);
         this.squareColor = color;
+        //this.owner = -1;
         this.price = price;
-        this.owner = -1;
 
     }
     @Override
@@ -21,7 +21,7 @@ public class Amusements extends Square {
 
     }
 
-    public void landOnSquare (Player[] players, int player, Square[] squares){
+    /*public void landOnSquare (Player[] players, int player, Square[] squares){
         // If both amusements in same color group is owned by the same player
         // the price multiplier is 2, if not, then it's 1.
         int priceMultiplier = 1;
@@ -50,7 +50,7 @@ public class Amusements extends Square {
             players[player].updateScore(-this.getPrice() * priceMultiplier);
             players[this.getOwner()].updateScore(this.getPrice() * priceMultiplier);
         }
-    }
+    }*/
 
     public String getSquareName() {
         return SquareName;
@@ -64,13 +64,13 @@ public class Amusements extends Square {
         return squareColor;
     }
 
-    public Player getOwner(){
+    /*public Player getOwner(){
         return owner;
-    }
+    }*/
 
-    public void setOwner(Player owner){
+   /* public void setOwner(Player owner){
         this.owner = owner;
-    }
+    }*/
 
     public int getPrice(){
         return price;

@@ -17,6 +17,7 @@ public class GameLogic {
     private String playername;
     private boolean gameDone = false;
     private String winner;
+    private int gameCycle;
 
     public void run(){
         setupGame();
@@ -24,16 +25,18 @@ public class GameLogic {
             for (int i = 0; i<players.length; i++) {
                 playerTurn(players[i], pieces[i]);
             }
+            gameCycle ++;
         }
         System.out.println("Spilleren: " + getWinner(players) + " har vundet!!");
     }
 
     private void setupGame(){
         players = new Player[getPlayerAmount()]; // Sets length of player array
-        pieces = new Piece[getPlayerAmount()]; // Sets length of player array
+        pieces = new Piece[playeramount]; // Sets length of player array
         setupPlayerNameAndPiece(); // Sets player name and piece and adds it to player array and piece array
     }
     private void playerTurn(Player player, Piece piece){
+        playerPassesStart(piece, player);
         playerRollDice(player, piece);
         updatePlayerBalance(player, piece);
         checkForLoss(player);
@@ -61,11 +64,17 @@ public class GameLogic {
             gameDone = true;
         }
     }
-
+    private void playerPassesStart(Piece piece, Player player){
+        if (piece.getLastPiecePosition() > piece.getPiecePosition()){
+            System.out.println("Du har passeret start, modtag 2kr af banken.");
+            player.updateScore(2);
+        }
+    }
     private void playerRollDice (Player player, Piece piece){
         System.out.println(player.getPlayerName() + ", rul terningerne! Tryk på vilkårlig tast for at rulle.");
         userinput.next();
         dice.roll();
+        piece.setLastPiecePosition();
         piece.setPiecePosition(dice.getRollSum());
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[piece.getPiecePosition()].getSquareName());
     }
@@ -73,7 +82,10 @@ public class GameLogic {
     // Buys or pays rent to owner of current square. (Current state of method, just buys a place)
     private void updatePlayerBalance(Player player, Piece piece){
         int price = squares.getSquareArray()[piece.getPiecePosition()].getPrice();
+        String amusement = squares.getSquareArray()[piece.getPiecePosition()].getSquareName();
         player.updateScore(-price);
+        System.out.println("Du har købt grunden: " + amusement + ". Og betalte " + price + " for den.");
+        System.out.println("Din nuværende balance er: " + player.getBalance());
     }
 
     // Checks if the current square is owned by other player. Returns true if it is owned.

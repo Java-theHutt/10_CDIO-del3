@@ -17,8 +17,8 @@ public class Jail extends Square {
         Takes 3$ from the player, and puts it on the loose change square
         */
 
-         players[player].setpiecePosition(6);
-         players[player].setBalance(-3);
+        // players[player].setpiecePosition(6);
+        // players[player].setBalance(-3);
     }
 
     public String getOccupiedBy(){

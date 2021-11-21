@@ -14,6 +14,7 @@ public class Piece {
     private List<Integer> squaresOwned = new ArrayList();
     private final Cards cards = new Cards();
     private int piecePosition = 0;
+    private int lastPiecePosition = 0;
     private String spiritName;
     private int spiritID;
     private boolean hasSpiritCard = false;
@@ -86,6 +87,14 @@ public class Piece {
 
     public int getPiecePosition(){
         return this.piecePosition;
+    }
+
+    public void setLastPiecePosition(){
+        this.lastPiecePosition = getPiecePosition();
+    }
+
+    public int getLastPiecePosition(){
+        return this.lastPiecePosition;
     }
 
     public void movePieceTo(){
