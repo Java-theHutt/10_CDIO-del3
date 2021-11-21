@@ -25,18 +25,17 @@ public class GameLogic {
                 playerTurn(players[i], pieces[i]);
             }
         }
-        getWinner(players);
+        System.out.println("Spilleren: " + getWinner(players) + " har vundet!!");
     }
 
     private void setupGame(){
         players = new Player[getPlayerAmount()]; // Sets length of player array
         pieces = new Piece[getPlayerAmount()]; // Sets length of player array
-        setupPlayerNameAndPiece(); // Sets player name and adds it to player array
-
+        setupPlayerNameAndPiece(); // Sets player name and piece and adds it to player array and piece array
     }
     private void playerTurn(Player player, Piece piece){
         playerRollDice(player, piece);
-
+        updatePlayerBalance(player, piece);
         checkForLoss(player);
     }
     // Finds a winner after a loser is found and assigns player name to a winner variable
@@ -70,6 +69,17 @@ public class GameLogic {
         piece.setPiecePosition(dice.getRollSum());
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[piece.getPiecePosition()].getSquareName());
     }
+
+    // Buys or pays rent to owner of current square. (Current state of method, just buys a place)
+    private void updatePlayerBalance(Player player, Piece piece){
+        int price = squares.getSquareArray()[piece.getPiecePosition()].getPrice();
+        player.updateScore(-price);
+    }
+
+    // Checks if the current square is owned by other player. Returns true if it is owned.
+    private boolean checkForOwner(Piece piece){return true;}
+    private void buySquare(Player player, Piece piece){}
+    private void payRent(Player player, Piece piece){}
 
     //Sets player names, a player piece and adds them to a player array and a piece array
     private void setupPlayerNameAndPiece(){
