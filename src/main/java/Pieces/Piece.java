@@ -64,6 +64,10 @@ public class Piece {
         squaresOwned.add(squarePositions);
     }
 
+    public List<Integer> getSquaresOwned() {
+        return squaresOwned;
+    }
+
     public void setSpiritCardStatus(boolean bool){
         this.hasSpiritCard = bool;
     }
