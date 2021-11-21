@@ -19,7 +19,7 @@ public class Piece {
     private boolean hasSpiritCard = false;
     private Player player;
 
-
+    public Piece(){}
     public Piece(String spiritName, int spiritID){
         this.spiritName = spiritName;
         this.spiritID = spiritID;

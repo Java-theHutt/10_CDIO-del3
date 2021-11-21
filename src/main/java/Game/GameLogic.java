@@ -1,5 +1,6 @@
 package Game;
 
+import Pieces.Piece;
 import Squares.SquareList;
 
 import java.util.Scanner;
@@ -9,7 +10,8 @@ public class GameLogic {
     private final Scanner userinput = new Scanner(System.in);
     private Player[] players;
     private DiceCollection dice = new DiceCollection(2);
-    private SquareList square = new SquareList();
+    private SquareList squares = new SquareList();
+    private Piece[] pieces;
     private int playeramount;
     private int startingscore = 35;
     private String playername;
@@ -17,29 +19,27 @@ public class GameLogic {
     private String winner;
 
     public void run(){
-        setupPlayers();
+        setupGame();
         while (!gameDone) {
-            for (Player player : players) {
-                playerTurn(player);
+            for (int i = 0; i<players.length; i++) {
+                playerTurn(players[i], pieces[i]);
             }
         }
         getWinner(players);
     }
 
-    private void setupPlayers(){
-        // Sets length of player array
-        players = new Player[getPlayerAmount()];
-
-        // Sets player name and adds it to player array
-        setupPlayerNames();
+    private void setupGame(){
+        players = new Player[getPlayerAmount()]; // Sets length of player array
+        pieces = new Piece[getPlayerAmount()]; // Sets length of player array
+        setupPlayerNameAndPiece(); // Sets player name and adds it to player array
 
     }
-    private void playerTurn(Player player){
-        playerRollDice(player);
+    private void playerTurn(Player player, Piece piece){
+        playerRollDice(player, piece);
 
         checkForLoss(player);
     }
-    // Finds a winner when a loser is found and assigns player name to a winner variable
+    // Finds a winner after a loser is found and assigns player name to a winner variable
     //Helper method for getWinner
 
     private void findWinner(Player[] players){
@@ -63,20 +63,23 @@ public class GameLogic {
         }
     }
 
-    private void playerRollDice (Player player){
+    private void playerRollDice (Player player, Piece piece){
         System.out.println(player.getPlayerName() + ", rul terningerne! Tryk på vilkårlig tast for at rulle.");
         userinput.next();
         dice.roll();
-        System.out.println(player.getPlayerName() + " lander på ");
+        piece.setPiecePosition(dice.getRollSum());
+        System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[piece.getPiecePosition()].getSquareName());
     }
 
-    //Sets player names and adds them to the player array
-    private void setupPlayerNames(){
+    //Sets player names, a player piece and adds them to a player array and a piece array
+    private void setupPlayerNameAndPiece(){
         for (int i = 0; i<playeramount;i++){
             System.out.println("Spiller " + i + ", indtast dit navn her: ");
             playername = userinput.next();
             Player player = new Player(playername, startingscore);
+            Piece piece = new Piece();
             players[i] = player;
+            pieces[i] = piece;
         }
     }
     //Helper function for setupPlayers
