@@ -11,18 +11,16 @@ public class GameLogic {
     private Player[] players;
     private DiceCollection dice = new DiceCollection(2);
     private SquareList squares = new SquareList();
-    private Piece[] pieces;
     private int playeramount;
     private int startingscore = 35;
-    private String playername;
     private boolean gameDone = false;
     private String winner;
 
     public void run(){
         setupGame();
         while (!gameDone) {
-            for (int i = 0; i<players.length; i++) {
-                playerTurn(players[i], pieces[i]);
+            for (Player player: players) {
+                playerTurn(player);
             }
         }
         System.out.println("Spilleren: " + getWinner(players) + " har vundet!!");
@@ -30,13 +28,12 @@ public class GameLogic {
 
     private void setupGame(){
         players = new Player[getPlayerAmount()]; // Sets length of player array
-        pieces = new Piece[playeramount]; // Sets length of player array
-        setupPlayerNameAndPiece(); // Sets player name and piece and adds it to player array and piece array
+        setupPlayer(); // Sets player name and piece and adds it to player array and piece array
     }
-    private void playerTurn(Player player, Piece piece){
-        playerPassesStart(piece, player);
-        playerRollDice(player, piece);
-        updatePlayerBalance(player, piece);
+    private void playerTurn(Player player){
+        playerPassesStart(player);
+        playerRollDice(player);
+        updatePlayerBalance(player);
         checkForLoss(player);
     }
     // Finds a winner after a loser is found and assigns player name to a winner variable
@@ -62,27 +59,27 @@ public class GameLogic {
             gameDone = true;
         }
     }
-    private void playerPassesStart(Piece piece, Player player){
-        if (piece.getLastPiecePosition() > piece.getPiecePosition()){
+    private void playerPassesStart(Player player){
+        if (player.getPiece().getLastPiecePosition() > player.getPiece().getPiecePosition()){
             System.out.println("Du har passeret start, modtag 2kr af banken.");
             player.updateScore(2);
             System.out.println("Din balance er nu: " + player.getBalance());
         }
     }
-    private void playerRollDice (Player player, Piece piece){
+    private void playerRollDice (Player player){
         System.out.println(player.getPlayerName() + ", rul terningerne! Tryk på vilkårlig tast for at rulle.");
         userinput.next();
         dice.roll();
-        piece.setLastPiecePosition();
-        piece.setPiecePosition(dice.getRollSum());
+        player.getPiece().setLastPiecePosition();
+        player.getPiece().setPiecePosition(dice.getRollSum());
         System.out.println();
-        System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[piece.getPiecePosition()].getSquareName());
+        System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName());
     }
 
     // Buys or pays rent to owner of current square. (Current state of method, just buys a place)
-    private void updatePlayerBalance(Player player, Piece piece){
-        int price = squares.getSquareArray()[piece.getPiecePosition()].getPrice();
-        String amusement = squares.getSquareArray()[piece.getPiecePosition()].getSquareName();
+    private void updatePlayerBalance(Player player){
+        int price = squares.getSquareArray()[player.getPiece().getPiecePosition()].getPrice();
+        String amusement = squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName();
         player.updateScore(-price);
         System.out.println("Du har købt grunden: " + amusement + ". Og har betalt " + price + " for den.");
         System.out.println("Din nuværende balance er: " + player.getBalance());
@@ -90,20 +87,20 @@ public class GameLogic {
     }
 
     // Checks if the current square is owned by other player. Returns true if it is owned.
-    private boolean checkForOwner(Piece piece){return true;}
-    private void buySquare(Player player, Piece piece){}
-    private void payRent(Player player, Piece piece){}
+    private boolean checkForOwner(){return true;}
+    private void buySquare(Player player){}
+    private void payRent(Player player){}
 
     //Sets player names, a player piece and adds them to a player array and a piece array
-    private void setupPlayerNameAndPiece(){
+    private void setupPlayer(){
+        String playername;
         for (int i = 0; i<playeramount;i++){
             System.out.println("Spiller " + i + ", indtast dit navn her: ");
             playername = userinput.next();
             System.out.println();
-            Player player = new Player(playername, startingscore);
             Piece piece = new Piece();
+            Player player = new Player(playername, startingscore, piece);
             players[i] = player;
-            pieces[i] = piece;
         }
     }
     //Helper function for setupPlayers
