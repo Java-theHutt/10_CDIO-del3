@@ -9,7 +9,7 @@ import java.util.List;
 public class MatadorGuiTest {
     public static void main(String[] args) {
 
-        GUI gui = new GUI();
+        GUI gui = new GUI(FieldfactoryJunior.makeFields());
 
         // Opretter spiller med navnet Stephen og start balance på 2000
         GUI_Player player1 = new GUI_Player("Stephen", 2000);
