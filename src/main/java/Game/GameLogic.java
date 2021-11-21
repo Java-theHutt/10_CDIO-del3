@@ -17,7 +17,6 @@ public class GameLogic {
     private String playername;
     private boolean gameDone = false;
     private String winner;
-    private int gameCycle;
 
     public void run(){
         setupGame();
@@ -25,7 +24,6 @@ public class GameLogic {
             for (int i = 0; i<players.length; i++) {
                 playerTurn(players[i], pieces[i]);
             }
-            gameCycle ++;
         }
         System.out.println("Spilleren: " + getWinner(players) + " har vundet!!");
     }

@@ -1,14 +1,18 @@
 package Game;
 
+import Pieces.Piece;
+
 import static java.lang.Math.signum;
 
 public class Player {
     private String playerName;
     private Account balance;
+    private Piece piece;
 
-    public Player (String name, int startingScore){
+    public Player (String name, int startingScore, Piece piece){
         this.playerName = name;
         this.balance = new Account(startingScore);
+        this.piece = new Piece();
     }
 
     public void updateScore (int amount){
@@ -34,5 +38,9 @@ public class Player {
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
+    }
+
+    public Piece getPiece() {
+        return piece;
     }
 }
