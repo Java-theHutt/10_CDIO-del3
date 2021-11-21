@@ -68,6 +68,7 @@ public class GameLogic {
         if (piece.getLastPiecePosition() > piece.getPiecePosition()){
             System.out.println("Du har passeret start, modtag 2kr af banken.");
             player.updateScore(2);
+            System.out.println("Din balance er nu: " + player.getBalance());
         }
     }
     private void playerRollDice (Player player, Piece piece){
@@ -76,6 +77,7 @@ public class GameLogic {
         dice.roll();
         piece.setLastPiecePosition();
         piece.setPiecePosition(dice.getRollSum());
+        System.out.println();
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[piece.getPiecePosition()].getSquareName());
     }
 
@@ -84,8 +86,9 @@ public class GameLogic {
         int price = squares.getSquareArray()[piece.getPiecePosition()].getPrice();
         String amusement = squares.getSquareArray()[piece.getPiecePosition()].getSquareName();
         player.updateScore(-price);
-        System.out.println("Du har købt grunden: " + amusement + ". Og betalte " + price + " for den.");
+        System.out.println("Du har købt grunden: " + amusement + ". Og har betalt " + price + " for den.");
         System.out.println("Din nuværende balance er: " + player.getBalance());
+        System.out.println();
     }
 
     // Checks if the current square is owned by other player. Returns true if it is owned.
@@ -98,6 +101,7 @@ public class GameLogic {
         for (int i = 0; i<playeramount;i++){
             System.out.println("Spiller " + i + ", indtast dit navn her: ");
             playername = userinput.next();
+            System.out.println();
             Player player = new Player(playername, startingscore);
             Piece piece = new Piece();
             players[i] = player;
