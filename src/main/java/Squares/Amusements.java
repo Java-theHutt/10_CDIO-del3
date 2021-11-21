@@ -6,13 +6,13 @@ import Pieces.Piece;
 public class Amusements extends Square {
 
     private String squareColor;
-    private Player[] owner;
+    private int ownerIndex;
     private int price;
 
     public Amusements (String name, String description, String color, int price){
         super(name, description);
         this.squareColor = color;
-        //this.owner = -1;
+        this.ownerIndex = -1;
         this.price = price;
 
     }
@@ -21,36 +21,37 @@ public class Amusements extends Square {
 
     }
 
-    /*public void landOnSquare (Player[] players, int player, Square[] squares){
+    public void landOnSquare (Player[] players, int player, Square[] squares){
         // If both amusements in same color group is owned by the same player
         // the price multiplier is 2, if not, then it's 1.
         int priceMultiplier = 1;
 
-        // NEEDS UPDATE
+        int position = players[player].getPiece().getPiecePosition();
 
         // If no one owns the amusements, player buys it
-        if (this.getOwner() ==-1){
+        if (getOwnerIndex() ==-1){
             players[player].setBalance(-this.getPrice());
-            this.setOwner(player);
+            ownerIndex = (player);
+
         }
         // If a different player owns it, also checks if said player owns both of same color
         // Needs position method from either player or piece
 
-        else if (this.getOwner() != player){
-            if (squares[players[player].getpiecePosition()-1] instanceof Amusements){
-                if (((Amusements) squares[players][player].getpiecePosition()-1]).getOwner() == this.getOwner())){
+        else if (this.getOwnerIndex() != player){
+            if (squares[position -1] instanceof Amusements){
+                if (((Amusements) squares[position -1]).getOwnerIndex() == this.getOwnerIndex()){
                     priceMultiplier = 2;
                 }
             }
-            else if(squares[players[player].getpiecePosition()+1] instanceof Amusements){
-                if(((Amusements) squares[(players[player].getpiecePosition()+1)%24]).getOwnedBy() == this.getOwner()){
+            else if(squares[position+1] instanceof Amusements){
+                if(((Amusements) squares[position +1%24]).getOwnerIndex() == this.getOwnerIndex()){
                     priceMultiplier = 2;
         }
     }
             players[player].updateScore(-this.getPrice() * priceMultiplier);
-            players[this.getOwner()].updateScore(this.getPrice() * priceMultiplier);
+            players[this.getOwnerIndex()].updateScore(this.getPrice() * priceMultiplier);
         }
-    }*/
+    }
 
     public String getSquareName() {
         return SquareName;
@@ -64,13 +65,9 @@ public class Amusements extends Square {
         return squareColor;
     }
 
-    /*public Player getOwner(){
-        return owner;
-    }*/
-
-   /* public void setOwner(Player owner){
-        this.owner = owner;
-    }*/
+    public int getOwnerIndex() {
+        return ownerIndex;
+    }
 
     public int getPrice(){
         return price;
