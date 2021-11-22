@@ -9,7 +9,7 @@ public class SpecialSquare extends Square {
     }
 
     @Override
-    public void landOnSquare(Player[] players, int player) {
+    public void landOnSquare(Player player) {
 
     }
 }

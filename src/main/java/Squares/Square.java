@@ -36,5 +36,5 @@ public abstract class Square {
     // Abstract method used by the individual squares
     // to perform their respective actions
 
-    public abstract void landOnSquare (Player[] players, int player);
+    public abstract void landOnSquare (Player player);
 }

@@ -10,7 +10,7 @@ public class ChanceSquare extends Square {
         super("?", "Træk et chancekort fra bunken");
     }
 
-    public void landOnSquare (Player[] players, int player){
+    public void landOnSquare (Player player){
 
 
 
