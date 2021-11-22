@@ -31,10 +31,10 @@ public class GameLogic {
         setupPlayer(); // Sets player name and piece and adds it to player array and piece array
     }
     private void playerTurn(Player player){
-        playerPassesStart(player);
-        playerRollDice(player);
-        updatePlayerBalance(player);
-        checkForLoss(player);
+            playerPassesStart(player);
+            playerRollDice(player);
+            updatePlayerBalance(player);
+            checkForLoss(player);
     }
     // Finds a winner after a loser is found and assigns player name to a winner variable
     //Helper method for getWinner
@@ -76,20 +76,12 @@ public class GameLogic {
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName());
     }
 
-    // Buys or pays rent to owner of current square. (Current state of method, just buys a place)
+    // Buys or pays rent to owner of current square.
     private void updatePlayerBalance(Player player){
-        int price = squares.getSquareArray()[player.getPiece().getPiecePosition()].getPrice();
-        String amusement = squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName();
-        player.updateScore(-price);
-        System.out.println("Du har købt grunden: " + amusement + ". Og har betalt " + price + " for den.");
+        squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
         System.out.println("Din nuværende balance er: " + player.getBalance());
         System.out.println();
     }
-
-    // Checks if the current square is owned by other player. Returns true if it is owned.
-    private boolean checkForOwner(){return true;}
-    private void buySquare(Player player){}
-    private void payRent(Player player){}
 
     //Sets player names, a player piece and adds them to a player array and a piece array
     private void setupPlayer(){
