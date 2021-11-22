@@ -101,8 +101,8 @@ public class Piece {
         return this.lastPiecePosition;
     }
 
-    public void movePieceTo(){
-
+    public void movePieceTo(int position){
+        this.piecePosition = position;
     }
 
     /**
