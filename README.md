@@ -18,3 +18,9 @@ Brugeren indtaster det ønskede antal spillere, hvorefter konsolen vil prompte h
 GUI'en viser hver spillers lokation på boardet.
 Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0 kroner, hvorefter spilleren med flest penge vinder.
 Det printes i terminal vinduet, hvorefter programmet vil terminere, man kan herefter bruge Run igen, hvis man ønsker at spille igen.
+
+Spillet kan også til hver en tid termineres på følgende måder, hvis man ikke ønsker at spille længere:
+
+- Trykke på det røde kranie i terminal vinduet med "Stop 'Main'"
+- Trykke på den røde firkant oppe i højre hjørne
+- Taste genvejen Ctrl+F2 på tastaturen
