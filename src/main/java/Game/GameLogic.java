@@ -35,6 +35,7 @@ public class GameLogic {
         players = new Player[getPlayerAmount()]; // Sets length of player array
         playersGUI = new GUI_Player[players.length]; //Sets length of playersGUI array the size of player array
         setupPlayer(); // Sets player name and piece and adds it to player array and piece array
+        setupGUIPlayer(); //Sets up the players on game board
     }
     private void playerTurn(Player player){
             playerPassesStart(player);
@@ -101,6 +102,13 @@ public class GameLogic {
             players[i] = player;
         }
     }
+
+    private void setupGUIPlayer(){
+        for (int i = 0; i < players.length; i++) {
+            playersGUI[i] = new GUI_Player(players[i].getPlayerName(),startingscore); //adds the players to the gui
+        }
+    }
+
     //Helper function for setupPlayers
     private int getPlayerAmount(){
         System.out.println("Spillet er tilegnet 2-4 spillere. Indtast antal spillere her: ");
