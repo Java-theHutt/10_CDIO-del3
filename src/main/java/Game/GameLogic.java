@@ -82,6 +82,7 @@ public class GameLogic {
         player.getPiece().setPiecePosition(dice.getRollSum());
         System.out.println();
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName());
+        showDice(dice.getDiceFaceValue(1),dice.getDiceFaceValue(2)); //shows dice value in gui bases on roll
     }
 
     // Buys or pays rent to owner of current square.
@@ -104,16 +105,22 @@ public class GameLogic {
         }
     }
 
+    //creates gui players based on players + adds them to the board
     private void setupGUIPlayer(){
         for (int i = 0; i < players.length; i++) {
             playersGUI[i] = new GUI_Player(players[i].getPlayerName(),startingscore); //sets up players on gui
         }
         addPlayersToBoard();
     }
+    //adds players to gui
     private void addPlayersToBoard(){
         for (GUI_Player player : playersGUI){
             monopolyGUI.addPlayer(player);
         }
+    }
+
+    private void showDice(int die1Value,int die2Value){
+        monopolyGUI.setDice(die1Value,die2Value);
     }
 
     //Helper function for setupPlayers
