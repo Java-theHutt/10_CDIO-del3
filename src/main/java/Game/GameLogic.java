@@ -73,6 +73,7 @@ public class GameLogic {
             System.out.println("Du har passeret start, modtag 2kr af banken.");
             player.updateScore(2);
             System.out.println("Din balance er nu: " + player.getBalance());
+            player.getGuiPlayer().setBalance(player.getBalance());
         }
     }
     private void playerRollDice (Player player){
@@ -92,6 +93,7 @@ public class GameLogic {
         squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
         System.out.println("Din nuværende balance er: " + player.getBalance());
         System.out.println();
+        player.getGuiPlayer().setBalance(player.getBalance());
     }
 
     //Sets player names, a player piece and adds them to a player array and a piece array
