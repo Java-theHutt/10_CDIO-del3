@@ -3,12 +3,14 @@ package Game;
 import GUI.MonopolyGUI;
 import Pieces.Piece;
 import Squares.SquareList;
+import gui_fields.GUI_Player;
 
 import java.util.Scanner;
 
 public class GameLogic {
 
     private final MonopolyGUI gui = new MonopolyGUI();
+    private GUI_Player[] playersGUI;
     private final Scanner userinput = new Scanner(System.in);
     private Player[] players;
     private DiceCollection dice = new DiceCollection(2);
@@ -31,6 +33,7 @@ public class GameLogic {
 
     private void setupGame(){
         players = new Player[getPlayerAmount()]; // Sets length of player array
+        playersGUI = new GUI_Player[players.length]; //Sets length of playersGUI array the size of player array
         setupPlayer(); // Sets player name and piece and adds it to player array and piece array
     }
     private void playerTurn(Player player){
