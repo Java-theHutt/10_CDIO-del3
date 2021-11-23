@@ -25,30 +25,31 @@ public class Amusements extends Square {
         if (getOwner() == null){
             player.updateScore(-this.getPrice());
             owner = player;
+            player.getbuildingColorsOwned().add(this.getSquareColor());
         }
 
-        // if another player owns the amusement, pay rent to the player.
+        // if another player owns the amusement, pay rent to the player. Also checks if a player owns two of the same
+        // amusement, in which the rent is doubled.
         else if (!player.equals(getOwner())){
-            player.updateScore(-this.getPrice() * priceMultiplier);
-            this.getOwner().updateScore(this.getPrice() * priceMultiplier);
-        }
-        // If a different player owns it, also checks if said player owns both of same color
-        // Needs position method from either player or piece
-        /*
-        else if (this.getOwner() != player){
-            if (SquareList.getSquareArray()[position -1] instanceof Amusements){
-                if (((Amusements) squares[position -1]).getOwner() == this.getOwner()){
-                    priceMultiplier = 2;
+
+            int colorcount = 0; // used to count if a player owns all amusements with the same color
+
+            // Goes through each element in array that stores amusement colors for a given player
+            // and checks if there are two of the same color in the array
+            for (String color: this.getOwner().getbuildingColorsOwned()) {
+                if (color.equals(this.getSquareColor())){
+                    colorcount++;
+                    // colorcount is incremented for each occurence of a given color
+                    if (colorcount == 2){
+                        priceMultiplier = 2;
+                        System.out.println(this.getOwner().getPlayerName() + " ejer begge ejendomme. Du betaler dobbelt leje!");
+                    }
                 }
             }
-            else if(squares[position+1] instanceof Amusements){
-                if(((Amusements) squares[position +1%24]).getOwner() == this.getOwner()){
-                    priceMultiplier = 2;
-        }
-    }
             player.updateScore(-this.getPrice() * priceMultiplier);
+            System.out.println("Du har betalt " + this.getPrice()*priceMultiplier + " i leje!");
             this.getOwner().updateScore(this.getPrice() * priceMultiplier);
-        }*/
+        }
     }
 
     public String getSquareName() {

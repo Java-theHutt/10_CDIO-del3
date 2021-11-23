@@ -1,6 +1,10 @@
 package Game;
 
 import Pieces.Piece;
+import Squares.Square;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.Math.signum;
 
@@ -8,6 +12,7 @@ public class Player {
     private String playerName;
     private Account balance;
     private Piece piece;
+    private List<String> buildingColorsOwned = new ArrayList();
 
     public Player (String name, int startingScore, Piece piece){
         this.playerName = name;
@@ -42,5 +47,9 @@ public class Player {
 
     public Piece getPiece() {
         return piece;
+    }
+
+    public List<String> getbuildingColorsOwned() {
+        return buildingColorsOwned;
     }
 }
