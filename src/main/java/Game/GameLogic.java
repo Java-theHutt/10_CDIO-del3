@@ -126,7 +126,7 @@ public class GameLogic {
         //throws player in jail if he lands on go to jail
         if(squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("fængsel")) {
             monopolyFields[player.getPiece().getPiecePosition()].setCar(player.getGuiPlayer(), false);
-            monopolyFields[18].setCar(player.getGuiPlayer(), true);
+            monopolyFields[6].setCar(player.getGuiPlayer(), true);
         }
     }
 
