@@ -1,15 +1,17 @@
 package Game;
 
-import GUI.MonopolyGUI;
+import gui_main.GUI;
+import GUI.FieldfactoryJunior;
 import Pieces.Piece;
 import Squares.SquareList;
 import gui_fields.GUI_Player;
 
 import java.util.Scanner;
 
+
 public class GameLogic {
 
-    private final MonopolyGUI gui = new MonopolyGUI();
+    private GUI monopolyGUI = new GUI(FieldfactoryJunior.makeFields());
     private GUI_Player[] playersGUI;
     private final Scanner userinput = new Scanner(System.in);
     private Player[] players;
@@ -22,7 +24,6 @@ public class GameLogic {
 
     public void run(){
         setupGame();
-        gui.setUpGUI();
         while (!gameDone) {
             for (Player player: players) {
                 playerTurn(player);
@@ -33,8 +34,8 @@ public class GameLogic {
 
     private void setupGame(){
         players = new Player[getPlayerAmount()]; // Sets length of player array
-        playersGUI = new GUI_Player[players.length]; //Sets length of playersGUI array the size of player array
         setupPlayer(); // Sets player name and piece and adds it to player array and piece array
+        playersGUI = new GUI_Player[players.length]; //Sets length of playersGUI array the size of player array
         setupGUIPlayer(); //Sets up the players on game board
     }
     private void playerTurn(Player player){
@@ -105,7 +106,13 @@ public class GameLogic {
 
     private void setupGUIPlayer(){
         for (int i = 0; i < players.length; i++) {
-            playersGUI[i] = new GUI_Player(players[i].getPlayerName(),startingscore); //adds the players to the gui
+            playersGUI[i] = new GUI_Player(players[i].getPlayerName(),startingscore); //sets up players on gui
+        }
+        addPlayersToBoard();
+    }
+    private void addPlayersToBoard(){
+        for (GUI_Player player : playersGUI){
+            monopolyGUI.addPlayer(player);
         }
     }
 
