@@ -6,9 +6,13 @@ import Squares.Square;
 import java.util.ArrayList;
 import java.util.List;
 
+import gui_fields.GUI_Player;
+import gui_main.GUI;
+
 import static java.lang.Math.signum;
 
 public class Player {
+    private GUI_Player guiPlayer;
     private String playerName;
     private Account balance;
     private Piece piece;
@@ -18,6 +22,7 @@ public class Player {
         this.playerName = name;
         this.balance = new Account(startingScore);
         this.piece = new Piece();
+        setGuiPlayer();
     }
 
     public void updateScore (int amount){
@@ -27,6 +32,12 @@ public class Player {
         else {
             balance.addToBalance(amount);
         }
+    }
+    public void setGuiPlayer(){
+        guiPlayer = new GUI_Player(this.playerName,this.balance.getBalance());
+    }
+    public GUI_Player getGuiPlayer(){
+        return this.guiPlayer;
     }
 
     public String getPlayerName() {

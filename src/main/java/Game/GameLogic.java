@@ -1,5 +1,6 @@
 package Game;
 
+import gui_fields.GUI_Field;
 import gui_main.GUI;
 import GUI.FieldfactoryJunior;
 import Pieces.Piece;
@@ -12,6 +13,7 @@ import java.util.Scanner;
 public class GameLogic {
 
     private GUI monopolyGUI = new GUI(FieldfactoryJunior.makeFields());
+    private final GUI_Field[] monopolyFields = monopolyGUI.getFields();
     private GUI_Player[] playersGUI;
     private final Scanner userinput = new Scanner(System.in);
     private Player[] players;
@@ -35,8 +37,7 @@ public class GameLogic {
     private void setupGame(){
         players = new Player[getPlayerAmount()]; // Sets length of player array
         setupPlayer(); // Sets player name and piece and adds it to player array and piece array
-        playersGUI = new GUI_Player[players.length]; //Sets length of playersGUI array the size of player array
-        setupGUIPlayer(); //Sets up the players on game board
+        addPlayersToBoard();
     }
     private void playerTurn(Player player){
             playerPassesStart(player);
@@ -83,6 +84,7 @@ public class GameLogic {
         System.out.println();
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName());
         showDice(dice.getDiceFaceValue(1),dice.getDiceFaceValue(2)); //shows dice value in gui bases on roll
+        movePlayers(player);//moves the players on the board.
     }
 
     // Buys or pays rent to owner of current square.
@@ -105,22 +107,22 @@ public class GameLogic {
         }
     }
 
-    //creates gui players based on players + adds them to the board
-    private void setupGUIPlayer(){
-        for (int i = 0; i < players.length; i++) {
-            playersGUI[i] = new GUI_Player(players[i].getPlayerName(),startingscore); //sets up players on gui
-        }
-        addPlayersToBoard();
-    }
     //adds players to gui
     private void addPlayersToBoard(){
-        for (GUI_Player player : playersGUI){
-            monopolyGUI.addPlayer(player);
+        for (Player player : players){
+            monopolyGUI.addPlayer(player.getGuiPlayer());
+            monopolyFields[0].setCar(player.getGuiPlayer(),true); //sets the players cars at start field
         }
     }
 
+    //shows dice values on board
     private void showDice(int die1Value,int die2Value){
         monopolyGUI.setDice(die1Value,die2Value);
+    }
+    //moves the players cars on board + delete old position
+    private void movePlayers(Player player){
+        monopolyFields[player.getPiece().getLastPiecePosition()].setCar(player.getGuiPlayer(),false);
+        monopolyFields[player.getPiece().getPiecePosition()].setCar(player.getGuiPlayer(),true);
     }
 
     //Helper function for setupPlayers
