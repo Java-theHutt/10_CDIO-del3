@@ -1,5 +1,6 @@
 package Game;
 
+import GUI.MonopolyGUI;
 import Pieces.Piece;
 import Squares.SquareList;
 
@@ -7,6 +8,7 @@ import java.util.Scanner;
 
 public class GameLogic {
 
+    private final MonopolyGUI gui = new MonopolyGUI();
     private final Scanner userinput = new Scanner(System.in);
     private Player[] players;
     private DiceCollection dice = new DiceCollection(2);
@@ -18,6 +20,7 @@ public class GameLogic {
 
     public void run(){
         setupGame();
+        gui.setUpGUI();
         while (!gameDone) {
             for (Player player: players) {
                 playerTurn(player);
