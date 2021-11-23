@@ -123,6 +123,10 @@ public class GameLogic {
     private void movePlayers(Player player){
         monopolyFields[player.getPiece().getLastPiecePosition()].setCar(player.getGuiPlayer(),false);
         monopolyFields[player.getPiece().getPiecePosition()].setCar(player.getGuiPlayer(),true);
+        if(squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName() == "fængsel") {
+            monopolyFields[player.getPiece().getPiecePosition()].setCar(player.getGuiPlayer(), false);
+            monopolyFields[18].setCar(player.getGuiPlayer(), true);
+        }
     }
 
     //Helper function for setupPlayers
