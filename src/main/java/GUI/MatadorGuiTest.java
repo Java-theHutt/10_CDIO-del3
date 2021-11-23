@@ -5,6 +5,7 @@ import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
 import Game.Player;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 public class MatadorGuiTest {
     private static GUI gui;
     private static Player player;
+    private static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
 
         GUI gui = new GUI(FieldfactoryJunior.makeFields());
@@ -25,6 +27,7 @@ public class MatadorGuiTest {
         GUI_Player player3 = new GUI_Player("Marc", 2000);
         GUI_Player player4 = new GUI_Player("Perkovich", 2000);
 
+
         List<GUI_Player> players = new ArrayList<>();
         players.add(player1);
         field.setCar(player1,true);
@@ -36,15 +39,23 @@ public class MatadorGuiTest {
         field.setCar(player4,true);
         field.setCar(player1,false);
 
-        field = gui.getFields()[4];
-        field.setCar(player1,true);
+        int rollSum = 0;
+        int squareNumber;
+        while(true){
+            rollSum += scan.nextInt();
+            squareNumber = rollSum % 24;
+            field.setCar(player1,false);
+            field = fields[squareNumber];
+            field.setCar(player1,true);
 
-        GUI_Street street = (GUI_Street) field;
+        }
+
+
+
+        /*GUI_Street street = (GUI_Street) field;
 
         gui.showMessage("Press OK to start");
 
-        gui.setDie(6);
-        gui.setDice(1,2);
 
         String chosenButton = gui.getUserButtonPressed("Click a button","Button 1","Button 2");
 
@@ -52,7 +63,7 @@ public class MatadorGuiTest {
         for (GUI_Player player : players) {
             // Tilføjer ham til spillet
             gui.addPlayer(player);
-        }
+        }*/
     }
 
     public static void movePiece(Player player,GUI_Player guiPlayer){
