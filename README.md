@@ -18,8 +18,9 @@ Herefter kan spillet køres ved flere forskellige metoder:
 
 Derefter burde der fås en pop-up med en GUI for spillebrættet: <br />
 ![alt text](https://i.imgur.com/NodN4Cd.png) <br />
+
 Samt et terminal pop-up med teksten "Spillet er tilegnet 2-4 spillere. Indtast antal spillere her:" <br />
-Brugeren indtaster det ønskede antal spillere, hvorefter konsolen vil prompte hver spiller til at kaste terningerne når det er deres tur.
+Brugeren indtaster det ønskede antal spillere og trykker enter, hvorefter konsolen vil prompte hver spiller til at kaste terningerne når det er deres tur. Terningerne kastes ved at taste en vilkårlig tast, og trykke enter.
 GUI'en viser hver spillers lokation på boardet.
 Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0 kroner, hvorefter spilleren med flest penge vinder.
 Vinderen printes i terminal vinduet, hvorefter programmet vil terminere. Man kan herefter bruge Run igen, hvis man ønsker at spille igen.
