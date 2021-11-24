@@ -81,14 +81,16 @@ public class GameLogic {
         showDice(dice.getDiceFaceValue(1),dice.getDiceFaceValue(2)); //shows dice value in gui bases on roll
         player.getPiece().setLastPiecePosition();
         player.getPiece().setPiecePosition(dice.getRollSum());
+        movePlayers(player);//moves the players on the board.
         System.out.println();
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName());
-        movePlayers(player);//moves the players on the board.
+        chancecardNewLandOnSquare(player);
     }
 
     // Buys or pays rent to owner of current square.
     private void updatePlayerBalance(Player player){
-        squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
+        if (!squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("Chance"))
+                squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
         movePlayers(player);
         System.out.println("Din nuværende balance er: " + player.getBalance());
         System.out.println();
@@ -113,6 +115,13 @@ public class GameLogic {
         for (Player player : players){
             monopolyGUI.addPlayer(player.getGuiPlayer());
             monopolyFields[0].setCar(player.getGuiPlayer(),true); //sets the players cars at start field
+        }
+    }
+
+    private void chancecardNewLandOnSquare(Player player){
+        if(squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("Chance")) {
+            squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
+            movePlayers(player);//moves the players on the board.
         }
     }
 

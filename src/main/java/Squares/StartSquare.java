@@ -13,5 +13,7 @@ public class StartSquare extends Square {
    public void landOnSquare (Player player){
        System.out.println("Du er landet på Start og modtager 2kr");
        player.updateScore(2);
+
+       player.getPiece().setLastPiecePosition();
    }
 }
