@@ -1,9 +1,9 @@
 # 10_CDIO-del3
 
-Matador Junior spil - udarbejdet i led med CDIO del 3 opgave.
+ # Matador Junior spil - udarbejdet i led med CDIO del 3 opgave.
 
 
-Sådan spiller man:
+## Sådan spiller man:
 
 Spillet initialiseres ved at først navigere til src/main/java/Game/Main filen, som der dobbeltklikkes på for at åbne i IntelliJ: <br />
 ![alt text](https://i.imgur.com/n2ei2Lz.png)
@@ -18,7 +18,7 @@ Herefter kan spillet køres ved flere forskellige metoder:
 
 Derefter burde der fås en pop-up med en GUI for spillebrættet: <br />
 ![alt text](https://i.imgur.com/NodN4Cd.png) <br />
-Samt et terminal pop-up med teksten "Spillet er tilegnet 2-4 spillere. Indtast antal spillere her:"
+Samt et terminal pop-up med teksten "Spillet er tilegnet 2-4 spillere. Indtast antal spillere her:" <br />
 Brugeren indtaster det ønskede antal spillere, hvorefter konsolen vil prompte hver spiller til at kaste terningerne når det er deres tur.
 GUI'en viser hver spillers lokation på boardet.
 Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0 kroner, hvorefter spilleren med flest penge vinder.
@@ -31,7 +31,9 @@ Spillet kan også til hver en tid termineres på følgende måder, hvis man ikke
 - Taste genvejen Ctrl+F2 på tastaturen
 
 
-Mulige løsninger hvis programmet ikke virker:
+
+
+## Mulige løsninger hvis programmet ikke virker:
 
 Tjek at du runner den rigtige configuration, ved at vælge "Main" i drop-down menuet ved siden af run knappen:<br />
 ![alt text](https://i.imgur.com/In4ZNa3.png)<br />
