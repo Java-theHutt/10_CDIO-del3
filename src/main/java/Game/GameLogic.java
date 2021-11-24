@@ -5,16 +5,14 @@ import gui_main.GUI;
 import GUI.FieldfactoryJunior;
 import Pieces.Piece;
 import Squares.SquareList;
-import gui_fields.GUI_Player;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
 
 public class GameLogic {
 
     private GUI monopolyGUI = new GUI(FieldfactoryJunior.makeFields());
     private final GUI_Field[] monopolyFields = monopolyGUI.getFields();
-    private GUI_Player[] playersGUI;
     private final Scanner userinput = new Scanner(System.in);
     private Player[] players;
     private DiceCollection dice = new DiceCollection(2);
@@ -44,6 +42,7 @@ public class GameLogic {
             playerRollDice(player);
             updatePlayerBalance(player);
             checkForLoss(player);
+            movePlayers(player);//moves the players on the board.
     }
     // Finds a winner after a loser is found and assigns player name to a winner variable
     //Helper method for getWinner
@@ -80,11 +79,11 @@ public class GameLogic {
         System.out.println(player.getPlayerName() + ", rul terningerne! Tryk på vilkårlig tast for at rulle.");
         userinput.next();
         dice.roll();
+        showDice(dice.getDiceFaceValue(1),dice.getDiceFaceValue(2)); //shows dice value in gui bases on roll
         player.getPiece().setLastPiecePosition();
         player.getPiece().setPiecePosition(dice.getRollSum());
         System.out.println();
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName());
-        showDice(dice.getDiceFaceValue(1),dice.getDiceFaceValue(2)); //shows dice value in gui bases on roll
         movePlayers(player);//moves the players on the board.
     }
 
@@ -126,8 +125,8 @@ public class GameLogic {
         monopolyFields[player.getPiece().getLastPiecePosition()].setCar(player.getGuiPlayer(),false);
         monopolyFields[player.getPiece().getPiecePosition()].setCar(player.getGuiPlayer(),true);
         //throws player in jail if he lands on go to jail
-        if(squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("fængsel")) {
-            monopolyFields[player.getPiece().getPiecePosition()].setCar(player.getGuiPlayer(), false);
+        if(squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("I Fængsel")) {
+            monopolyFields[18].setCar(player.getGuiPlayer(), false);
             monopolyFields[6].setCar(player.getGuiPlayer(), true);
         }
     }
@@ -137,12 +136,16 @@ public class GameLogic {
         System.out.println("Spillet er tilegnet 2-4 spillere. Indtast antal spillere her: ");
         boolean x = true;
         while (x) {
-            playeramount = userinput.nextInt();
-            if (playeramount > 1 && playeramount < 5){
-                x = false;
-            }
-            else {
-                System.out.println("Forkert antal spillere. Indtast igen her: ");
+            try {
+                playeramount = userinput.nextInt();
+                if (playeramount > 1 && playeramount < 5) {
+                    x = false;
+                } else {
+                    System.out.println("Forkert antal spillere. Indtast igen her: ");
+                }
+            }catch(InputMismatchException e){
+                System.out.println("Forkert input. Indtast tal fra 2 - 4!");
+                userinput.next();
             }
         }
         return playeramount;
