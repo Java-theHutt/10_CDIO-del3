@@ -14,11 +14,11 @@ Herefter kan spillet køres ved flere forskellige metoder:
 - Der kan klikkes på den grønne "Run" pil oppe i højre hjørne
 - Der kan tastes genvejen Shift+F10 på tastaturen for at aktivere Run <br />
 
-![alt text](https://i.imgur.com/0t7z1nw.png)
+![alt text](https://i.imgur.com/0t7z1nw.png)<br />
 
 Derefter burde der fås en pop-up med en GUI for spillebrættet: <br />
-![alt text](https://i.imgur.com/NodN4Cd.png)
-samt et terminal pop-up med teksten "Spillet er tilegnet 2-4 spillere. Indtast antal spillere her:"
+![alt text](https://i.imgur.com/NodN4Cd.png) <br />
+Samt et terminal pop-up med teksten "Spillet er tilegnet 2-4 spillere. Indtast antal spillere her:"
 Brugeren indtaster det ønskede antal spillere, hvorefter konsolen vil prompte hver spiller til at kaste terningerne når det er deres tur.
 GUI'en viser hver spillers lokation på boardet.
 Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0 kroner, hvorefter spilleren med flest penge vinder.
@@ -34,6 +34,6 @@ Spillet kan også til hver en tid termineres på følgende måder, hvis man ikke
 Mulige løsninger hvis programmet ikke virker:
 
 Tjek at du runner den rigtige configuration, ved at vælge "Main" i drop-down menuet ved siden af run knappen:<br />
-![alt text](https://i.imgur.com/In4ZNa3.png)
+![alt text](https://i.imgur.com/In4ZNa3.png)<br />
 Verificer at du kører den nyeste version af softwaren ved at klikke på den skrå blå pil udfor Git, for at opdatere projektet: <br />
 ![alt text](https://i.imgur.com/ViXf5Wr.png)
