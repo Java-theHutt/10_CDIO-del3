@@ -88,6 +88,9 @@ public class Piece {
         this.piecePosition += roll;
         moveToSquare(this.piecePosition % 24);
     }
+    public void movePieceTo(int field){
+        moveToSquare(field);
+    }
 
     public int getPiecePosition(){
         return this.piecePosition;
@@ -100,11 +103,6 @@ public class Piece {
     public int getLastPiecePosition(){
         return this.lastPiecePosition;
     }
-
-    public void movePieceTo(int position){
-        this.piecePosition = position;
-    }
-
 
     private void moveToSquare(int action) {
         this.piecePosition = action;

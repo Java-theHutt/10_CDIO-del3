@@ -1,6 +1,7 @@
 package Squares;
 
 import ChanceCards.Card;
+import Game.GameLogic;
 import Game.Player;
 import ChanceCards.Cards;
 
@@ -11,15 +12,20 @@ public class ChanceSquare extends Square {
 
     private final Scanner scan = new Scanner(System.in);
     private final Cards chancecards = new Cards();
+    //private final GameLogic movePlayers = new GameLogic();
 
     public ChanceSquare(){
         super("Chance", "Træk et chancekort fra bunken");
     }
 
     public void landOnSquare (Player player){
+        player.getPiece().setLastPiecePosition();
+
         chancecards.pickChanceCard();
 
         moveChanceCardActions(chancecards.getCurrentCard(),player);
+
+        //movePlayers.movePlayers(player);//moves the players on the board.
     }
     public String getSquareName() {
         return "Chance";
@@ -31,7 +37,7 @@ public class ChanceSquare extends Square {
      */
     public void moveChanceCardActions(Card card,Player player){
             if(card.getCardID() <= 3){
-                player.getPiece().setPiecePosition((card.getAction()));
+                player.getPiece().movePieceTo((card.getAction()));
             }else if(card.getCardID() == 4){
                 moveOneToFive(player);
             }else if(card.getCardID() == 5){
@@ -74,16 +80,16 @@ public class ChanceSquare extends Square {
                 x = scan.nextInt();
                 if(x > 0 && x < 5){
                     if (x == 1) {
-                        player.getPiece().setPiecePosition(square1Number);
+                        player.getPiece().movePieceTo(square1Number);
                         bool = false;
                     } else if (x == 2) {
-                        player.getPiece().setPiecePosition(square2Number);
+                        player.getPiece().movePieceTo(square2Number);
                         bool = false;
                     } else if (x == 3) {
-                        player.getPiece().setPiecePosition(square3Number);
+                        player.getPiece().movePieceTo(square3Number);
                         bool = false;
                     } else if (x == 4) {
-                        player.getPiece().setPiecePosition(square4Number);
+                        player.getPiece().movePieceTo(square4Number);
                         bool = false;
                     }
                 }else
@@ -130,10 +136,10 @@ public class ChanceSquare extends Square {
                 x = scan.nextInt();
                 if(x > 0 && x < 3) {
                     if (x == 1) {
-                        player.getPiece().setPiecePosition(square1Number);
+                        player.getPiece().movePieceTo(square1Number);
                         bool = false;
                     } else if (x == 2) {
-                        player.getPiece().setPiecePosition(square2Number);
+                        player.getPiece().movePieceTo(square2Number);
                         bool = false;
                     }
                 }else
@@ -150,9 +156,10 @@ public class ChanceSquare extends Square {
         System.out.println("If you want to move type m, else type anything else to receive new chance card");
         String input = scan.next();
         if (input.charAt(0) == 'm'){
-            player.getPiece().setPiecePosition(player.getPiece().getPiecePosition() + 1);
+            player.getPiece().movePieceTo(player.getPiece().getPiecePosition() + 1);
         }else {
             chancecards.pickChanceCard();
+            moveChanceCardActions(chancecards.getCurrentCard(), player);
         }
     }
 
@@ -164,7 +171,7 @@ public class ChanceSquare extends Square {
             try{
                 num = scan.nextInt();
                 if(num > 0 && num < 6) {
-                    player.getPiece().setPiecePosition(player.getPiece().getPiecePosition() + num);
+                    player.getPiece().movePieceTo(player.getPiece().getPiecePosition() + num);
                     break;
                 }else
                     System.out.println("Indtast tal fra 1 - 5!");
