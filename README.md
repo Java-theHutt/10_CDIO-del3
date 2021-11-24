@@ -13,7 +13,7 @@ Herefter kan spillet køres ved flere forskellige metoder:
 - Der kan klikkes på den grønne "Run" pil oppe i højre hjørne
 - Der kan tastes genvejen Shift+F10 på tastaturen for at aktivere Run
 
-Derefter burde der fås en pop-up med en GUI for spillebrættet: 
+Derefter burde der fås en pop-up med en GUI for spillebrættet: <br />
 ![alt text](https://i.imgur.com/NodN4Cd.png)
 samt et terminal pop-up med teksten "Spillet er tilegnet 2-4 spillere. Indtast antal spillere her: "
 Brugeren indtaster det ønskede antal spillere, hvorefter konsolen vil prompte hver spiller til at kaste terningerne når det er deres tur.
