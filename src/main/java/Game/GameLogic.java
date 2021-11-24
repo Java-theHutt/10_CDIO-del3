@@ -42,7 +42,6 @@ public class GameLogic {
             playerRollDice(player);
             updatePlayerBalance(player);
             checkForLoss(player);
-            movePlayers(player);//moves the players on the board.
     }
     // Finds a winner after a loser is found and assigns player name to a winner variable
     //Helper method for getWinner
@@ -89,7 +88,9 @@ public class GameLogic {
 
     // Buys or pays rent to owner of current square.
     private void updatePlayerBalance(Player player){
+        player.getPiece().setLastPiecePosition();
         squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
+        movePlayers(player);//moves the players on the board.
         System.out.println("Din nuværende balance er: " + player.getBalance());
         System.out.println();
         player.getGuiPlayer().setBalance(player.getBalance());
