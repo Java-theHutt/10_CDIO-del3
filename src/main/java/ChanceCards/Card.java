@@ -3,8 +3,8 @@ package ChanceCards;
 public class Card {
 
     private final int cardID;
-    private String cardName;
-    private String description;
+    private final String cardName;
+    private final String description;
     private int action;
 
     public Card(int ID, String cardName, String description){
