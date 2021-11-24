@@ -37,5 +37,9 @@ Spillet kan også til hver en tid termineres på følgende måder, hvis man ikke
 
 Tjek at du runner den rigtige configuration, ved at vælge "Main" i drop-down menuet ved siden af run knappen:<br />
 ![alt text](https://i.imgur.com/In4ZNa3.png)<br />
+
 Verificer at du kører den nyeste version af softwaren ved at klikke på den skrå blå pil udfor Git, for at opdatere projektet: <br />
 ![alt text](https://i.imgur.com/ViXf5Wr.png)
+
+Verificer at du er på den korrekte github branch, ved at vælge Main, i popuppet nede i højre hjørne, under event log: <br />
+![alt text](https://i.imgur.com/pLjpDKv.png) <br />
