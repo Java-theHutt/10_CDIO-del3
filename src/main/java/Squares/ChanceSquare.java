@@ -72,19 +72,22 @@ public class ChanceSquare extends Square {
         while(bool) {
             try {
                 x = scan.nextInt();
-                if (x == 1) {
-                    player.getPiece().setPiecePosition(square1Number);
-                    bool = false;
-                } else if (x == 2) {
-                    player.getPiece().setPiecePosition(square2Number);
-                    bool = false;
-                } else if (x == 3) {
-                    player.getPiece().setPiecePosition(square3Number);
-                    bool = false;
-                } else if (x == 4) {
-                    player.getPiece().setPiecePosition(square4Number);
-                    bool = false;
-                }
+                if(x > 0 && x < 5){
+                    if (x == 1) {
+                        player.getPiece().setPiecePosition(square1Number);
+                        bool = false;
+                    } else if (x == 2) {
+                        player.getPiece().setPiecePosition(square2Number);
+                        bool = false;
+                    } else if (x == 3) {
+                        player.getPiece().setPiecePosition(square3Number);
+                        bool = false;
+                    } else if (x == 4) {
+                        player.getPiece().setPiecePosition(square4Number);
+                        bool = false;
+                    }
+                }else
+                    System.out.println("Indtast et tal fra 1 - 4!");
             } catch (InputMismatchException e){
             System.out.println("Invalid input! Enter 1, 2, 3 or 4..!");
             scan.next();
@@ -125,13 +128,16 @@ public class ChanceSquare extends Square {
         while(bool){
             try {
                 x = scan.nextInt();
-                if (x == 1) {
-                    player.getPiece().setPiecePosition(square1Number);
-                    bool = false;
-                } else if (x == 2) {
-                    player.getPiece().setPiecePosition(square2Number);
-                    bool = false;
-                }
+                if(x > 0 && x < 3) {
+                    if (x == 1) {
+                        player.getPiece().setPiecePosition(square1Number);
+                        bool = false;
+                    } else if (x == 2) {
+                        player.getPiece().setPiecePosition(square2Number);
+                        bool = false;
+                    }
+                }else
+                    System.out.println("Indtast tal fra 1 - 2!");
             }catch (InputMismatchException e) {
                 System.out.println("Invalid input! Enter 1 or 2..!");
                 scan.next();
@@ -155,10 +161,13 @@ public class ChanceSquare extends Square {
         System.out.print("Enter a number from 0 to 5, to move forward: ");
         int num;
         while(true){
-            num = scan.nextInt();
             try{
-                player.getPiece().setPiecePosition(player.getPiece().getPiecePosition() + num);
-                break;
+                num = scan.nextInt();
+                if(num > 0 && num < 6) {
+                    player.getPiece().setPiecePosition(player.getPiece().getPiecePosition() + num);
+                    break;
+                }else
+                    System.out.println("Indtast tal fra 1 - 5!");
             }catch(InputMismatchException e){
                     System.out.println("Input not valid. Enter a number from 0 to 5!");
                     scan.next();
