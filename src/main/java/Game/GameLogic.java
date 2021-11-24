@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class GameLogic {
 
-    private GUI monopolyGUI = new GUI(FieldfactoryJunior.makeFields());
+    private final GUI monopolyGUI = new GUI(FieldfactoryJunior.makeFields());
     private final GUI_Field[] monopolyFields = monopolyGUI.getFields();
     private final Scanner userinput = new Scanner(System.in);
     private Player[] players;
@@ -88,9 +88,8 @@ public class GameLogic {
 
     // Buys or pays rent to owner of current square.
     private void updatePlayerBalance(Player player){
-        player.getPiece().setLastPiecePosition();
         squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
-        movePlayers(player);//moves the players on the board.
+        movePlayers(player);
         System.out.println("Din nuværende balance er: " + player.getBalance());
         System.out.println();
         player.getGuiPlayer().setBalance(player.getBalance());
@@ -122,13 +121,15 @@ public class GameLogic {
         monopolyGUI.setDice(die1Value,die2Value);
     }
     //moves the players cars on board + delete old position
-    private void movePlayers(Player player){
-        monopolyFields[player.getPiece().getLastPiecePosition()].setCar(player.getGuiPlayer(),false);
-        monopolyFields[player.getPiece().getPiecePosition()].setCar(player.getGuiPlayer(),true);
-        //throws player in jail if he lands on go to jail
-        if(squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("I Fængsel")) {
-            monopolyFields[18].setCar(player.getGuiPlayer(), false);
-            monopolyFields[6].setCar(player.getGuiPlayer(), true);
+    public void movePlayers(Player player){
+        if(player.getPiece().getPiecePosition() != player.getPiece().getLastPiecePosition()) {
+            monopolyFields[player.getPiece().getLastPiecePosition()].setCar(player.getGuiPlayer(), false);
+            monopolyFields[player.getPiece().getPiecePosition()].setCar(player.getGuiPlayer(), true);
+            //throws player in jail if he lands on go to jail
+            if (squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("I Fængsel")) {
+                monopolyFields[18].setCar(player.getGuiPlayer(), false);
+                monopolyFields[6].setCar(player.getGuiPlayer(), true);
+            }
         }
     }
 
