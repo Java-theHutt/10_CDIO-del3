@@ -44,7 +44,7 @@ public class Cards {
      */
     private void createCards(){
         cardArray[0] = new Card(1,"moveToStart","The player moves his piece to the start square",0);
-        cardArray[6] = new Card(2,"moveBleach","The player moves to the beach",23);
+        cardArray[6] = new Card(2,"moveBeach","The player moves to the beach",23);
         cardArray[9] = new Card(3, "moveToSkaterpark","The player moves to the skaterpark. If it's not owned gets it for free. Otherwise pay the owner!",10);
         cardArray[1] = new Card(4,"move5","The player moves up to 5 squares forward",5);
         cardArray[3] = new Card(5,"goOrThrow","The player moves 1 field forward or takes another Chancecard");
