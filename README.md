@@ -34,13 +34,27 @@ Herefter kan spillet køres ved flere forskellige metoder:
 
 ![alt text](https://i.imgur.com/0t7z1nw.png)<br />
 
-Derefter burde der fås en pop-up med en GUI for spillebrættet: <br />
+Derefter burde der fås en pop-up med en GUI for spillebrættets startmenu <br />
 ![image](https://user-images.githubusercontent.com/83249678/143482813-30838257-2d28-4297-a92d-9e91e2dcfe99.png)
 
 Samt et konsolvindue i intelliJ: <br />
 ![image](https://user-images.githubusercontent.com/83249678/143483228-2de9d52e-af8a-48e3-b582-b25030a7f726.png)
 
-Brugeren indtaster det ønskede antal spillere og trykker enter, hvorefter konsolen vil prompte hver spiller til at kaste terningerne når det er deres tur. Terningerne kastes ved at taste en vilkårlig tast, og trykke enter.
+Fra startmenuen har brugeren to muligheder. Enten kan brugen trykke på knappen "Start Spiller" eller knappen "Regler".
+![image](https://user-images.githubusercontent.com/83249678/143483801-fb3144d6-1c78-43a1-a204-55040a00696f.png)
+
+Hvis brugeren vælger "Regler" vil brugeren kunne se reglerne. Derefter vender brugeren tilbage til startmenuen ved at trykke "OK", når brugeren har færdiglæst reglerne.
+![image](https://user-images.githubusercontent.com/83249678/143484057-50b01d72-e14b-4fc8-af5f-c78eb9ae710c.png)
+
+Når spillet bliver startet bliver brugeren bedt om at angive, hvor mange spillere der skal spille.
+![image](https://user-images.githubusercontent.com/83249678/143484307-1a54a0d4-8790-44f1-96ec-4d14f6ebaf1d.png)
+
+Brugeren skal indtaste et tal mellem fra og med 2 til og med 4. Hvis brugeren indtaster noget andet og trykker "OK", vil brugeren blive mødt af det samme vindue.
+Når antallet af spillere er angivet korrekt vil spillet hoppe videre til næste bruger input
+![image](https://user-images.githubusercontent.com/83249678/143484599-438bbfff-bebe-4114-82f2-49002ed13421.png)
+
+Her skal hver spiller angive sit in-game navn, som vil være at se på spillerens brik og felter spilleren ejer.
+
 GUI'en viser hver spillers lokation på boardet.
 Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0 kroner, hvorefter spilleren med flest penge vinder.
 Vinderen printes i terminal vinduet, hvorefter programmet vil terminere. Man kan herefter bruge Run igen, hvis man ønsker at spille igen.
@@ -51,6 +65,8 @@ Spillet kan også til hver en tid termineres på følgende måder, hvis man ikke
 - Trykke på den røde firkant oppe i højre hjørne
 - Taste genvejen Ctrl+F2 på tastaturen
 
+Brugeren kan til hver en tid stoppe spillet ved at lukke pop-up vinduet med spillebrættet ved at trykke på X'et øverst i højre hjørne.
+![image](https://user-images.githubusercontent.com/83249678/143483566-c5b5a3a6-3a56-42f9-8f80-23e98755fbd5.png)
 
 
 
