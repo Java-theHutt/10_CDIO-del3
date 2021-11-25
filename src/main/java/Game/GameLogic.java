@@ -5,7 +5,6 @@ import gui_main.GUI;
 import GUI.FieldfactoryJunior;
 import Pieces.Piece;
 import Squares.SquareList;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,9 +13,12 @@ public class GameLogic {
     private final GUI monopolyGUI = new GUI(FieldfactoryJunior.makeFields());
     private final GUI_Field[] monopolyFields = monopolyGUI.getFields();
     private final Scanner userinput = new Scanner(System.in);
+    private boolean rollDiceButton;
+    private boolean startGameButton = monopolyGUI.getUserLeftButtonPressed("Velkommen til Monopoly Junior","Start Spillet","Regler");
     private Player[] players;
-    private DiceCollection dice = new DiceCollection(2);
-    private SquareList squares = new SquareList();
+    private final DiceCollection dice = new DiceCollection(2);
+    private final SquareList squares = new SquareList();
+    private final Rules rules = new Rules();
     private int playeramount;
     private int startingscore = 35;
     private boolean gameDone = false;
@@ -33,6 +35,10 @@ public class GameLogic {
     }
 
     private void setupGame(){
+        while(!startGameButton){
+            monopolyGUI.showMessage(rules.getRules());
+            startGameButton = monopolyGUI.getUserLeftButtonPressed("Velkommen til Monopoly Junior","Start Spillet","Regler");
+        }
         players = new Player[getPlayerAmount()]; // Sets length of player array
         setupPlayer(); // Sets player name and piece and adds it to player array and piece array
         addPlayersToBoard();
@@ -76,8 +82,9 @@ public class GameLogic {
     }
     private void playerRollDice (Player player){
         System.out.println(player.getPlayerName() + ", rul terningerne! Tryk på vilkårlig tast for at rulle.");
-        userinput.next();
-        dice.roll();
+        //userinput.next();
+        if (isRollDiceButton(player))
+            dice.roll();
         showDice(dice.getDiceFaceValue(1),dice.getDiceFaceValue(2)); //shows dice value in gui bases on roll
         player.getPiece().setLastPiecePosition();
         player.getPiece().setPiecePosition(dice.getRollSum());
@@ -102,7 +109,8 @@ public class GameLogic {
         String playername;
         for (int i = 0; i<playeramount;i++){
             System.out.println("Spiller " + i + ", indtast dit navn her: ");
-            playername = userinput.next();
+            playername = monopolyGUI.getUserString("Spiller " + (i + 1) + " indtast dit navn: ");
+            //playername = userinput.next();
             System.out.println();
             Piece piece = new Piece();
             Player player = new Player(playername, startingscore, piece);
@@ -148,7 +156,9 @@ public class GameLogic {
         boolean x = true;
         while (x) {
             try {
-                playeramount = userinput.nextInt();
+                String input = monopolyGUI.getUserString("Vælg antal spillere : Indtast et tal fra 2 - 4");
+                //playeramount = userinput.nextInt();
+                playeramount = Character.getNumericValue(input.charAt(0));
                 if (playeramount > 1 && playeramount < 5) {
                     x = false;
                 } else {
@@ -160,5 +170,12 @@ public class GameLogic {
             }
         }
         return playeramount;
+    }
+    private boolean isRollDiceButton(Player player){
+        rollDiceButton = monopolyGUI.getUserLeftButtonPressed(player.getPlayerName() + "'s tur","Rul terninger","Drik kaffe");
+        while(!rollDiceButton){
+            rollDiceButton = monopolyGUI.getUserLeftButtonPressed(player.getPlayerName() + "'s tur","Rul terninger","Drik kaffe");
+        }
+        return rollDiceButton;
     }
 }
