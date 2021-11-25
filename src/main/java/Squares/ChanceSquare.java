@@ -12,7 +12,6 @@ public class ChanceSquare extends Square {
 
     private final Scanner scan = new Scanner(System.in);
     private final Cards chancecards = new Cards();
-    //private final GameLogic movePlayers = new GameLogic();
 
     public ChanceSquare(){
         super("Chance", "Træk et chancekort fra bunken");
@@ -24,8 +23,6 @@ public class ChanceSquare extends Square {
         chancecards.pickChanceCard();
 
         moveChanceCardActions(chancecards.getCurrentCard(),player);
-
-        //movePlayers.movePlayers(player);//moves the players on the board.
     }
     public String getSquareName() {
         return "Chance";
@@ -38,6 +35,7 @@ public class ChanceSquare extends Square {
     public void moveChanceCardActions(Card card,Player player){
             if(card.getCardID() <= 3){
                 player.getPiece().movePieceTo((card.getAction()));
+                chancecards.getCurrentCard().getCardName();
             }else if(card.getCardID() == 4){
                 moveOneToFive(player);
             }else if(card.getCardID() == 5){
@@ -70,9 +68,8 @@ public class ChanceSquare extends Square {
      * @param square4Number
      */
     public void moveToTwoColorAction(int square1Number,int square2Number,int square3Number,int square4Number,Player player){
-        System.out.println("You pulled the card " + chancecards.getCurrentCard().getCardName());
-        System.out.println("Therefore you may choose to go to 1 of 4 squares: - " + " enter 1 - "
-               + " enter 2 - "  + " enter 3 - "  + " enter 4 -");
+        System.out.println("Du træk chancekortet: " + chancecards.getCurrentCard().getCardName());
+        System.out.println("Derfor må du nu vælge 1 af 4 felter at rykke hen på: - " + "Indtast 1, 2, 3 eller 4 for at lande på hhv. første og sidst nævnte farve.");
         int x;
         boolean bool = true;
         while(bool) {
@@ -95,7 +92,7 @@ public class ChanceSquare extends Square {
                 }else
                     System.out.println("Indtast et tal fra 1 - 4!");
             } catch (InputMismatchException e){
-            System.out.println("Invalid input! Enter 1, 2, 3 or 4..!");
+            System.out.println("Forkert input! Indtast 1, 2, 3 or 4..!");
             scan.next();
             }
         }
@@ -126,9 +123,8 @@ public class ChanceSquare extends Square {
      * @param square2Number
      */
     public void moveToOneColorAction(int square1Number,int square2Number,Player player){
-        System.out.println("You pulled the card " + chancecards.getCurrentCard().getCardName());
-        System.out.println("Therefore you may choose between one of the 2 colored squares, that you want to go to.");
-        System.out.print("Enter 1, to go to "  + " or 2 to go to "  + ". Enter here: ");
+        System.out.println("Du trak chancekortet: " + chancecards.getCurrentCard().getCardName());
+        System.out.println("Vælg et felt ved at taste - 1 eller 2 - 1 er det laveste og 2 er det højeste felt");
         int x;
         boolean bool = true;
         while(bool){
@@ -145,15 +141,15 @@ public class ChanceSquare extends Square {
                 }else
                     System.out.println("Indtast tal fra 1 - 2!");
             }catch (InputMismatchException e) {
-                System.out.println("Invalid input! Enter 1 or 2..!");
+                System.out.println("Forkert input! Indtast 1 or 2..!");
                 scan.next();
             }
         }
     }
 
     private void goOrThrowAction(Player player) {
-        System.out.println("Choose between moving 1 field forward or take a new chance card");
-        System.out.println("If you want to move type m, else type anything else to receive new chance card");
+        System.out.println("Du trak chancekortet: " + chancecards.getCurrentCard().getCardName());
+        System.out.println("Hvis du vil rykke et felt frem tast m, ellers trækker du et nyt chancekort.");
         String input = scan.next();
         if (input.charAt(0) == 'm'){
             player.getPiece().movePieceTo(player.getPiece().getPiecePosition() + 1);
@@ -165,7 +161,7 @@ public class ChanceSquare extends Square {
 
 
     private void moveOneToFive(Player player) {
-        System.out.print("Enter a number from 0 to 5, to move forward: ");
+        System.out.print(chancecards.getCurrentCard().getCardName());
         int num;
         while(true){
             try{
@@ -176,7 +172,7 @@ public class ChanceSquare extends Square {
                 }else
                     System.out.println("Indtast tal fra 1 - 5!");
             }catch(InputMismatchException e){
-                    System.out.println("Input not valid. Enter a number from 0 to 5!");
+                    System.out.println("Input ikke gyldigt. Indtast et nummer fra 1 - 5");
                     scan.next();
                 }
         }
