@@ -9,6 +9,9 @@ Når dette er gjort skal kommandoprompten åbnes, dette kan gøres på flere må
  - Tryk Windows knap + R og skriv cmd i søgefeltet, tryk derefter OK.
  - I søgefeltet på skrivebordet, søg på kommandoprompt eller cmd og tryk Enter.
 
+![image](https://user-images.githubusercontent.com/83249678/143481761-7a35281e-b99d-4840-8f02-35eaba73bada.png)
+
+
 Når kommandoprompten er åben, skal der navigeres til den nyoprettede mappes lokation. Fx D:\Programmer\Coding\DTU\CDIO\CDIO-3
 Herefter skal projektet klones fra Github. Dette gøres ved at skrive følgende kommando i kommandoprompten:
 - c:\\...> git clone https://github.com/Java-theHutt/10_CDIO-del3.git
