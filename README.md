@@ -11,12 +11,13 @@ Når dette er gjort skal kommandoprompten åbnes, dette kan gøres på flere må
 
 Når kommandoprompten er åben, skal der navigeres til den nyoprettede mappes lokation. Fx D:\Programmer\Coding\DTU\CDIO\CDIO-3
 Herefter skal projektet klones fra Github. Dette gøres ved at skrive følgende kommando i kommandoprompten:
-- >> git clone https://github.com/Java-theHutt/10_CDIO-del3.git
-Tryk derefter på Enter. 
+- c:\\...> git clone https://github.com/Java-theHutt/10_CDIO-del3.git
+
+Tryk derefter på Enter. <br /> 
 Kommandoprompten vil nu downloade projektet til mappen og projektet vil være importeret.
 
-Åben IntelliJ. Tryk på File og derefter Open. 
-Nu skal mappen der blev oprettet findes og åbnes.
+Åben IntelliJ. Tryk på File og derefter Open. <br />
+Nu skal mappen der blev oprettet findes og åbnes.<br />
 Happy coding!
 
 
