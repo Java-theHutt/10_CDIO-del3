@@ -5,11 +5,13 @@ import Game.Player;
 import ChanceCards.Cards;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ChanceSquare extends Square {
 
     private final Scanner scan = new Scanner(System.in);
+    private final Random rand = new Random();
     private final Cards chancecards = new Cards();
 
     public ChanceSquare(){
@@ -34,7 +36,7 @@ public class ChanceSquare extends Square {
     public void moveChanceCardActions(Card card,Player player){
             if(card.getCardID() <= 3){
                 player.getPiece().movePieceTo((card.getAction()));
-                chancecards.getCurrentCard().getCardName();
+                System.out.println(chancecards.getCurrentCard().getCardName());
             }else if(card.getCardID() == 4){
                 moveOneToFive(player);
             }else if(card.getCardID() == 5){
@@ -72,9 +74,10 @@ public class ChanceSquare extends Square {
         int x;
         boolean bool = true;
         while(bool) {
-            try {
-                x = scan.nextInt();
-                if(x > 0 && x <= 5){
+            //try {
+                //x = scan.nextInt();
+            x = rand.nextInt(4)+1;
+                //if(x > 0 && x <= 5){
                     if (x == 1) {
                         player.getPiece().movePieceTo(square1Number);
                         bool = false;
@@ -88,12 +91,12 @@ public class ChanceSquare extends Square {
                         player.getPiece().movePieceTo(square4Number);
                         bool = false;
                     }
-                }else
+                //}else
                     System.out.println("Indtast et tal fra 1 - 5!");
-            } catch (InputMismatchException e){
-            System.out.println("Forkert input! Indtast 1, 2, 3, 4 eller 5..!");
-            scan.next();
-            }
+            //} catch (InputMismatchException e){
+            //System.out.println("Forkert input! Indtast 1, 2, 3, 4 eller 5..!");
+            //scan.next();
+            //}
         }
     }
 
@@ -127,32 +130,36 @@ public class ChanceSquare extends Square {
         int x;
         boolean bool = true;
         while(bool){
-            try {
-                x = scan.nextInt();
-                if(x > 0 && x < 3) {
+            //try {
+                //x = scan.nextInt();
+                //if(x > 0 && x < 3) {
+                x = rand.nextInt(2)+1;
                     if (x == 1) {
                         player.getPiece().movePieceTo(square1Number);
                         bool = false;
-                    } else if (x == 2) {
+                    } else {
                         player.getPiece().movePieceTo(square2Number);
                         bool = false;
                     }
-                }else
+                /*}else
                     System.out.println("Indtast tal fra 1 - 2!");
             }catch (InputMismatchException e) {
                 System.out.println("Forkert input! Indtast 1 or 2..!");
                 scan.next();
-            }
+            }*/
         }
     }
 
     private void goOrThrowAction(Player player) {
         System.out.println("Du trak chancekortet: " + chancecards.getCurrentCard().getCardName());
         System.out.println("Hvis du vil rykke et felt frem tast m, ellers trækker du et nyt chancekort.");
-        String input = scan.next();
-        if (input.charAt(0) == 'm'){
+        //String input = scan.next();
+        int x = rand.nextInt(2)+1;
+        //if (input.charAt(0) == 'm'){
+        if(x == 1)
             player.getPiece().movePieceTo(player.getPiece().getPiecePosition() + 1);
-        }else {
+        //}
+        else {
             chancecards.pickChanceCard();
             moveChanceCardActions(chancecards.getCurrentCard(), player);
         }
@@ -163,17 +170,18 @@ public class ChanceSquare extends Square {
         System.out.print(chancecards.getCurrentCard().getCardName());
         int num;
         while(true){
-            try{
-                num = scan.nextInt();
-                if(num > 0 && num < 6) {
+            //try{
+                //num = scan.nextInt();
+                //if(num > 0 && num < 6) {
+            num = rand.nextInt(5)+1;
                     player.getPiece().movePieceTo(player.getPiece().getPiecePosition() + num);
                     break;
-                }else
+                /*}else
                     System.out.println("Indtast tal fra 1 - 5!");
             }catch(InputMismatchException e){
                     System.out.println("Input ikke gyldigt. Indtast et nummer fra 1 - 5");
                     scan.next();
-                }
+                }*/
         }
     }
 }
