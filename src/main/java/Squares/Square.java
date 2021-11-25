@@ -37,4 +37,5 @@ public abstract class Square {
     // to perform their respective actions
 
     public abstract void landOnSquare (Player player);
+
 }

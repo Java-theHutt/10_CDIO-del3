@@ -1,10 +1,13 @@
 package Game;
 
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_main.GUI;
 import GUI.FieldfactoryJunior;
 import Pieces.Piece;
 import Squares.SquareList;
+
+import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,7 +17,10 @@ public class GameLogic {
     private final GUI_Field[] monopolyFields = monopolyGUI.getFields();
     private final Scanner userinput = new Scanner(System.in);
     private boolean rollDiceButton;
-    private boolean startGameButton = monopolyGUI.getUserLeftButtonPressed("Velkommen til Monopoly Junior","Start Spillet","Regler");
+    private GUI_Ownable ownable;
+    private Color[] playerColors = new Color[4];
+    private boolean startGameButton
+            = monopolyGUI.getUserLeftButtonPressed("Velkommen til Monopoly Junior","Start Spillet","Regler");
     private Player[] players;
     private final DiceCollection dice = new DiceCollection(2);
     private final SquareList squares = new SquareList();
@@ -36,13 +42,16 @@ public class GameLogic {
     }
 
     private void setupGame(){
+        //startgame button is true if player picks "start spillet" and false if "Regler".
         while(!startGameButton){
-            monopolyGUI.showMessage(rules.getRules());
+            monopolyGUI.showMessage(rules.getRules()); //shows rules on gameboard
             startGameButton = monopolyGUI.getUserLeftButtonPressed("Velkommen til Monopoly Junior","Start Spillet","Regler");
         }
         players = new Player[getPlayerAmount()]; // Sets length of player array
         setupPlayer(); // Sets player name and piece and adds it to player array and piece array
         addPlayersToBoard();
+        setOwnable();
+        ownable.setBorder(Color.YELLOW);
     }
     private void playerTurn(Player player){
             playerPassesStart(player);
@@ -101,11 +110,16 @@ public class GameLogic {
     private void updatePlayerBalance(Player player){
         if (!squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("Chance"))
                 squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
+        //Makes sure field is ownable, before accessing modifyownable method.
+        if (monopolyFields[player.getPiece().getPiecePosition()].getSubText().charAt(0) ==
+                'P' && monopolyFields[player.getPiece().getPiecePosition()].getSubText().charAt(2) == 'i') {
+            modifyOwnable(player, (GUI_Ownable) monopolyFields[player.getPiece().getPiecePosition()]);
+        }
         movePlayers(player);
         System.out.println("Din nuværende balance er: " + player.getBalance());
         monopolyGUI.showMessage("Din nuværende balance er: " + player.getBalance());
         System.out.println();
-        player.getGuiPlayer().setBalance(player.getBalance());
+        player.getGuiPlayer().setBalance(player.getBalance()); //sets playerbalance on gameboard
     }
 
     //Sets player names, a player piece and adds them to a player array and a piece array
@@ -117,9 +131,10 @@ public class GameLogic {
             //playername = userinput.next();
             System.out.println();
             Piece piece = new Piece();
-            Player player = new Player(playername, startingscore, piece);
+            Player player = new Player(playername, startingscore, piece, getColor(i));
             players[i] = player;
-            player.getGuiPlayer().getPrimaryColor();
+            player.getGuiPlayer().getCar().setPrimaryColor(player.getColor());
+            //player.getGuiPlayer().getCar().setSecondaryColor(player.getColor());
         }
     }
 
@@ -131,11 +146,24 @@ public class GameLogic {
         }
     }
 
+    //If the chancecard moves player to amusementfield makes sure landonsquare method is used for that field.
     private void chancecardNewLandOnSquare(Player player){
         if(squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName().equals("Chance")) {
             squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
             movePlayers(player);//moves the players on the board.
         }
+    }
+
+    //Colors the square for a player if its not owned.
+    public void modifyOwnable(Player player, GUI_Ownable field){
+            if (!field.getOwnableLabel().equals("solgt")) {
+                field.setOwnableLabel("solgt");
+                field.setTitle(player.getPlayerName() + "'s Square");
+                field.setBorder(player.getColor());
+                field.setOwnerName(player.getPlayerName());
+                field.setRent(field.getRent());
+                field.setSubText("Pris: " + field.getRent());
+            }
     }
 
     //shows dice values on board
@@ -174,8 +202,31 @@ public class GameLogic {
                 userinput.next();
             }
         }
+        setupColors();
         return playeramount;
     }
+
+    //color array for convenience
+    private void setupColors(){
+        playerColors[0] = Color.RED;
+        playerColors[1] = Color.BLUE;
+        playerColors[2] = Color.YELLOW;
+        playerColors[3] = Color.WHITE;
+    }
+
+    //sets all amusementsfields to ownable. The fields can then acces additional methods including coloring field frame.
+    private void setOwnable(){
+        for (int i = 0 ; i < monopolyFields.length ; i++){
+            if (monopolyFields[i].getSubText().charAt(0) == 'P' && monopolyFields[i].getSubText().charAt(2) == 'i') {
+                ownable = (GUI_Ownable) monopolyFields[i];
+            }
+        }
+    }
+
+    private Color getColor(int index){
+        return this.playerColors[index];
+    }
+    //Rolldicebutton returns true if player chooses "rul Terninger" and false for "Drik kaffe". Escapes once true.
     private boolean isRollDiceButton(Player player){
         rollDiceButton = monopolyGUI.getUserLeftButtonPressed(player.getPlayerName() + "'s tur","Rul terninger","Drik kaffe");
         while(!rollDiceButton){
