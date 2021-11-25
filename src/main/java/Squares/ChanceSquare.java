@@ -74,7 +74,7 @@ public class ChanceSquare extends Square {
         while(bool) {
             try {
                 x = scan.nextInt();
-                if(x > 0 && x < 5){
+                if(x > 0 && x <= 5){
                     if (x == 1) {
                         player.getPiece().movePieceTo(square1Number);
                         bool = false;
@@ -89,9 +89,9 @@ public class ChanceSquare extends Square {
                         bool = false;
                     }
                 }else
-                    System.out.println("Indtast et tal fra 1 - 4!");
+                    System.out.println("Indtast et tal fra 1 - 5!");
             } catch (InputMismatchException e){
-            System.out.println("Forkert input! Indtast 1, 2, 3 or 4..!");
+            System.out.println("Forkert input! Indtast 1, 2, 3, 4 eller 5..!");
             scan.next();
             }
         }
