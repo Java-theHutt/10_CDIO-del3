@@ -62,12 +62,23 @@ Når alle spillere har angivet et spillernavn kommer de videre til følgende vin
 Her kan spillerne se deres brik nede til venstre, samt deres balance og farve.
 For at drikke kaffe tryk på knappen "Drik kaffe" eller bare drik din kaffe... 
 For at slå medterningerne skal brugeren trykke på "Rul Terninger" knappen.
+
 ![image](https://user-images.githubusercontent.com/83249678/143485741-90cfc95c-c86a-4fbc-80f8-2ca64d21d312.png)
 
 Her kan brugeren visuelt se på to terninger, der bliver tilfældigt placeret på brættet, hvad vedkommende har slået, og ved at læse teskten kan man se hvor man er landet.
 
-Herefter kommer brugeren videre ved at trykke "OK", hvorefter brugeren balance på scoreboardet bliver opdateret, samt brugerens købte grunds rammer får brugerens farve (Bil farve).
+Herefter kommer brugeren videre ved at trykke "OK", hvorefter brugerens balance på scoreboardet bliver opdateret, samt brugerens købte grundes rammer får brugerens farve (Bil farve).
+
 ![image](https://user-images.githubusercontent.com/83249678/143485980-4aab323d-a1a3-4da7-b69b-d0bd920a708b.png)
+
+Yderligere informationer kan ses i konsollen. Det er bl.a. relevant når en spiller lander på "Prøv lykken".
+![image](https://user-images.githubusercontent.com/83249678/143486201-456df523-00db-4f6e-8679-9ff263c078ec.png)
+
+Brugeren afslutter sin tur ved at trykke "OK". Herefter går spillet i ring indtil der kun er en spiller tilbage.
+
+Brugeren kan til hver en tid stoppe spillet ved at lukke pop-up vinduet med spillebrættet ved at trykke på X'et øverst i højre hjørne.
+
+![image](https://user-images.githubusercontent.com/83249678/143483566-c5b5a3a6-3a56-42f9-8f80-23e98755fbd5.png)
 
 GUI'en viser hver spillers lokation på boardet.
 Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0 kroner, hvorefter spilleren med flest penge vinder.
