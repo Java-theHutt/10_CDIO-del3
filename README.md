@@ -82,7 +82,7 @@ Spillet kan også til hver en tid termineres på følgende måder, hvis man ikke
 - Trykke på det røde kranie i terminal vinduet med "Stop 'Main'"
 - Trykke på den røde firkant oppe i højre hjørne
 - Taste genvejen Ctrl+F2 på tastaturen
-- Lukke spilbræt vinduet ned ved at klikke på X'et i øverste højre hjørne:
+- Lukke spilbræt vinduet ned ved at klikke på X'et i øverste højre hjørne:<br />
 ![image](https://user-images.githubusercontent.com/83249678/143483566-c5b5a3a6-3a56-42f9-8f80-23e98755fbd5.png)
 
 
