@@ -71,24 +71,19 @@ Herefter kommer brugeren videre ved at trykke "OK", hvorefter brugerens balance 
 Yderligere informationer kan ses i konsollen. Det er bl.a. relevant når en spiller lander på "Prøv lykken".<br />
 ![image](https://user-images.githubusercontent.com/83249678/143486201-456df523-00db-4f6e-8679-9ff263c078ec.png)
 
-Brugeren afslutter sin tur ved at trykke "OK". Herefter går spillet i ring indtil der kun er en spiller tilbage.
-
-Brugeren kan til hver en tid stoppe spillet ved at lukke pop-up vinduet med spillebrættet ved at trykke på X'et øverst i højre hjørne.<br />
-![image](https://user-images.githubusercontent.com/83249678/143483566-c5b5a3a6-3a56-42f9-8f80-23e98755fbd5.png)
+Brugeren afslutter sin tur ved at trykke "OK". 
 
 GUI'en viser hver spillers lokation på boardet.
-Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0 kroner, hvorefter spilleren med flest penge vinder.
-Vinderen printes i terminal vinduet, hvorefter programmet vil terminere. Man kan herefter bruge Run igen, hvis man ønsker at spille igen.
+Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0M, hvorefter spilleren med flest penge vinder.
+Vinderen vises på spillebrættet samt konsolen, hvorefter programmet vil terminere. Man kan herefter bruge Run igen, hvis man ønsker at spille igen.
 
 Spillet kan også til hver en tid termineres på følgende måder, hvis man ikke ønsker at spille længere:
 
 - Trykke på det røde kranie i terminal vinduet med "Stop 'Main'"
 - Trykke på den røde firkant oppe i højre hjørne
 - Taste genvejen Ctrl+F2 på tastaturen
-
-Brugeren kan til hver en tid stoppe spillet ved at lukke pop-up vinduet med spillebrættet ved at trykke på X'et øverst i højre hjørne.<br />
+- Lukke spilbræt vinduet ned ved at klikke på X'et i øverste højre hjørne:
 ![image](https://user-images.githubusercontent.com/83249678/143483566-c5b5a3a6-3a56-42f9-8f80-23e98755fbd5.png)
-
 
 
 ## Mulige løsninger hvis programmet ikke virker:
