@@ -35,9 +35,11 @@ Herefter kan spillet køres ved flere forskellige metoder:
 ![alt text](https://i.imgur.com/0t7z1nw.png)<br />
 
 Derefter burde der fås en pop-up med en GUI for spillebrættet: <br />
-![alt text](https://i.imgur.com/NodN4Cd.png) <br />
+![image](https://user-images.githubusercontent.com/83249678/143482813-30838257-2d28-4297-a92d-9e91e2dcfe99.png)
 
-Samt et terminal pop-up med teksten "Spillet er tilegnet 2-4 spillere. Indtast antal spillere her:" <br />
+Samt et konsolvindue i intelliJ: <br />
+![image](https://user-images.githubusercontent.com/83249678/143483228-2de9d52e-af8a-48e3-b582-b25030a7f726.png)
+
 Brugeren indtaster det ønskede antal spillere og trykker enter, hvorefter konsolen vil prompte hver spiller til at kaste terningerne når det er deres tur. Terningerne kastes ved at taste en vilkårlig tast, og trykke enter.
 GUI'en viser hver spillers lokation på boardet.
 Spillet fortsætter indtil en spiller per. Monopoly Juniors regler, når 0 kroner, hvorefter spilleren med flest penge vinder.
