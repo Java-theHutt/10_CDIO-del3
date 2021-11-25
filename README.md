@@ -44,6 +44,7 @@ Fra startmenuen har brugeren to muligheder. Enten kan brugen trykke på knappen 
 ![image](https://user-images.githubusercontent.com/83249678/143483801-fb3144d6-1c78-43a1-a204-55040a00696f.png)
 
 Hvis brugeren vælger "Regler" vil brugeren kunne se reglerne. Derefter vender brugeren tilbage til startmenuen ved at trykke "OK", når brugeren har færdiglæst reglerne.
+
 ![image](https://user-images.githubusercontent.com/83249678/143484057-50b01d72-e14b-4fc8-af5f-c78eb9ae710c.png)
 
 Når spillet bliver startet bliver brugeren bedt om at angive, hvor mange spillere der skal spille.
