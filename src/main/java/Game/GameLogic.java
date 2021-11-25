@@ -54,10 +54,10 @@ public class GameLogic {
         ownable.setBorder(Color.YELLOW);
     }
     private void playerTurn(Player player){
-            playerPassesStart(player);
             playerRollDice(player);
             updatePlayerBalance(player);
             checkForLoss(player);
+            playerPassesStart(player);
     }
     // Finds a winner after a loser is found and assigns player name to a winner variable
     //Helper method for getWinner
