@@ -3,6 +3,7 @@ package Game;
 import Pieces.Piece;
 import Squares.Square;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,16 +13,19 @@ import gui_main.GUI;
 import static java.lang.Math.signum;
 
 public class Player {
+    private Color color;
     private GUI_Player guiPlayer;
     private String playerName;
     private Account balance;
     private Piece piece;
     private List<String> buildingColorsOwned = new ArrayList();
 
-    public Player (String name, int startingScore, Piece piece){
+
+    public Player (String name, int startingScore, Piece piece,Color color){
         this.playerName = name;
         this.balance = new Account(startingScore);
         this.piece = new Piece();
+        this.color = color;
         setGuiPlayer();
     }
 
@@ -46,6 +50,10 @@ public class Player {
 
     public int getBalance() {
         return balance.getBalance();
+    }
+
+    public Color getColor(){
+        return this.color;
     }
 
     public void setBalance(int money){
