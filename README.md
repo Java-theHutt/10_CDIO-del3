@@ -43,41 +43,37 @@ Samt et konsolvindue i intelliJ: <br />
 Fra startmenuen har brugeren to muligheder. Enten kan brugen trykke på knappen "Start Spiller" eller knappen "Regler".
 ![image](https://user-images.githubusercontent.com/83249678/143483801-fb3144d6-1c78-43a1-a204-55040a00696f.png)
 
-Hvis brugeren vælger "Regler" vil brugeren kunne se reglerne. Derefter vender brugeren tilbage til startmenuen ved at trykke "OK", når brugeren har færdiglæst reglerne.
-
+Hvis brugeren vælger "Regler" vil brugeren kunne se reglerne. Derefter vender brugeren tilbage til startmenuen ved at trykke "OK", når brugeren har færdiglæst reglerne.<br />
 ![image](https://user-images.githubusercontent.com/83249678/143484057-50b01d72-e14b-4fc8-af5f-c78eb9ae710c.png)
 
-Når spillet bliver startet bliver brugeren bedt om at angive, hvor mange spillere der skal spille.
+Når spillet bliver startet bliver brugeren bedt om at angive, hvor mange spillere der skal spille.<br />
 ![image](https://user-images.githubusercontent.com/83249678/143484307-1a54a0d4-8790-44f1-96ec-4d14f6ebaf1d.png)
 
 Brugeren skal indtaste et tal mellem fra og med 2 til og med 4. Hvis brugeren indtaster noget andet og trykker "OK", vil brugeren blive mødt af det samme vindue.
-Når antallet af spillere er angivet korrekt vil spillet hoppe videre til næste bruger input
+Når antallet af spillere er angivet korrekt vil spillet hoppe videre til næste bruger input<br />
 ![image](https://user-images.githubusercontent.com/83249678/143484599-438bbfff-bebe-4114-82f2-49002ed13421.png)
 
 Her skal hver spiller angive sit in-game navn, som vil være at se på spillerens brik og felter spilleren ejer.
 
-Når alle spillere har angivet et spillernavn kommer de videre til følgende vindue
+Når alle spillere har angivet et spillernavn kommer de videre til følgende vindue<br />
 ![image](https://user-images.githubusercontent.com/83249678/143485172-7d90e06d-c8fa-4329-a655-0fc07a4a4999.png)
 
 Her kan spillerne se deres brik nede til venstre, samt deres balance og farve.
 For at drikke kaffe tryk på knappen "Drik kaffe" eller bare drik din kaffe... 
-For at slå medterningerne skal brugeren trykke på "Rul Terninger" knappen.
-
+For at slå medterningerne skal brugeren trykke på "Rul Terninger" knappen.<br />
 ![image](https://user-images.githubusercontent.com/83249678/143485741-90cfc95c-c86a-4fbc-80f8-2ca64d21d312.png)
 
 Her kan brugeren visuelt se på to terninger, der bliver tilfældigt placeret på brættet, hvad vedkommende har slået, og ved at læse teskten kan man se hvor man er landet.
 
-Herefter kommer brugeren videre ved at trykke "OK", hvorefter brugerens balance på scoreboardet bliver opdateret, samt brugerens købte grundes rammer får brugerens farve (Bil farve).
-
+Herefter kommer brugeren videre ved at trykke "OK", hvorefter brugerens balance på scoreboardet bliver opdateret, samt brugerens købte grundes rammer får brugerens farve (Bil farve).<br />
 ![image](https://user-images.githubusercontent.com/83249678/143485980-4aab323d-a1a3-4da7-b69b-d0bd920a708b.png)
 
-Yderligere informationer kan ses i konsollen. Det er bl.a. relevant når en spiller lander på "Prøv lykken".
+Yderligere informationer kan ses i konsollen. Det er bl.a. relevant når en spiller lander på "Prøv lykken".<br />
 ![image](https://user-images.githubusercontent.com/83249678/143486201-456df523-00db-4f6e-8679-9ff263c078ec.png)
 
 Brugeren afslutter sin tur ved at trykke "OK". Herefter går spillet i ring indtil der kun er en spiller tilbage.
 
-Brugeren kan til hver en tid stoppe spillet ved at lukke pop-up vinduet med spillebrættet ved at trykke på X'et øverst i højre hjørne.
-
+Brugeren kan til hver en tid stoppe spillet ved at lukke pop-up vinduet med spillebrættet ved at trykke på X'et øverst i højre hjørne.<br />
 ![image](https://user-images.githubusercontent.com/83249678/143483566-c5b5a3a6-3a56-42f9-8f80-23e98755fbd5.png)
 
 GUI'en viser hver spillers lokation på boardet.
@@ -90,7 +86,7 @@ Spillet kan også til hver en tid termineres på følgende måder, hvis man ikke
 - Trykke på den røde firkant oppe i højre hjørne
 - Taste genvejen Ctrl+F2 på tastaturen
 
-Brugeren kan til hver en tid stoppe spillet ved at lukke pop-up vinduet med spillebrættet ved at trykke på X'et øverst i højre hjørne.
+Brugeren kan til hver en tid stoppe spillet ved at lukke pop-up vinduet med spillebrættet ved at trykke på X'et øverst i højre hjørne.<br />
 ![image](https://user-images.githubusercontent.com/83249678/143483566-c5b5a3a6-3a56-42f9-8f80-23e98755fbd5.png)
 
 
