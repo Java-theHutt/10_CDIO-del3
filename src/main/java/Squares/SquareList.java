@@ -46,10 +46,7 @@ public class SquareList {
         }
 
         else if (allSquares[i][0].equals("Chance")){
-            if (i==3){
                 this.squareArray[i] = new ChanceSquare();
-            }
-            else {squareArray[i] = squareArray[3];}
         }
 
         else if (allSquares[i][0].equals("I fængsel") || allSquares[i][0].equals("Gratis")){
@@ -66,6 +63,7 @@ public class SquareList {
         }
       }
     }
+
 
     // Creates a toString method for the
     // specific squares name and description
