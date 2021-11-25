@@ -32,6 +32,7 @@ public class GameLogic {
             }
         }
         System.out.println("Spilleren: " + getWinner(players) + " har vundet!!");
+        monopolyGUI.showMessage("Spilleren: " + getWinner(players) + " har vundet!!");
     }
 
     private void setupGame(){
@@ -76,6 +77,7 @@ public class GameLogic {
         if (player.getPiece().getLastPiecePosition() > player.getPiece().getPiecePosition()){
             System.out.println("Du har passeret start, modtag 2kr af banken.");
             player.updateScore(2);
+            monopolyGUI.showMessage("Du har passeret start, modtag 2kr af banken.\nDin balance er nu: " + player.getBalance());
             System.out.println("Din balance er nu: " + player.getBalance());
             player.getGuiPlayer().setBalance(player.getBalance());
         }
@@ -91,6 +93,7 @@ public class GameLogic {
         movePlayers(player);//moves the players on the board.
         System.out.println();
         System.out.println(player.getPlayerName() + " lander på " + squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName());
+        monopolyGUI.showMessage(player.getPlayerName() + " lander på " + squares.getSquareArray()[player.getPiece().getPiecePosition()].getSquareName());
         chancecardNewLandOnSquare(player);
     }
 
@@ -100,6 +103,7 @@ public class GameLogic {
                 squares.getSquareArray()[player.getPiece().getPiecePosition()].landOnSquare(player);
         movePlayers(player);
         System.out.println("Din nuværende balance er: " + player.getBalance());
+        monopolyGUI.showMessage("Din nuværende balance er: " + player.getBalance());
         System.out.println();
         player.getGuiPlayer().setBalance(player.getBalance());
     }
@@ -115,6 +119,7 @@ public class GameLogic {
             Piece piece = new Piece();
             Player player = new Player(playername, startingscore, piece);
             players[i] = player;
+            player.getGuiPlayer().getPrimaryColor();
         }
     }
 
