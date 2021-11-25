@@ -2,6 +2,23 @@
 
  # Matador Junior spil - udarbejdet i led med CDIO del 3 opgave.
 
+## Importering af projekt til IntelliJ med git
+Som det første skal der oprettes en tom mappe til projektet på computeren.
+
+Når dette er gjort skal kommandoprompten åbnes, dette kan gøres på flere måder:
+ - Tryk Windows knap + R og skriv cmd i søgefeltet, tryk derefter OK.
+ - I søgefeltet på skrivebordet, søg på kommandoprompt eller cmd og tryk Enter.
+
+Når kommandoprompten er åben, skal der navigeres til den nyoprettede mappes lokation. Fx D:\Programmer\Coding\DTU\CDIO\CDIO-3
+Herefter skal projektet klones fra Github. Dette gøres ved at skrive følgende kommando i kommandoprompten:
+- git clone https://github.com/Java-theHutt/10_CDIO-del3.git
+Tryk derefter på Enter. 
+Kommandoprompten vil nu downloade projektet til mappen og projektet vil være importeret.
+
+Åben IntelliJ. Tryk på File og derefter Open. 
+Nu skal mappen der blev oprettet findes og åbnes.
+Happy coding!
+
 
 ## Sådan spiller man:
 
