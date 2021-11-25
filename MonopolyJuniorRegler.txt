@@ -1,0 +1,7 @@
+Regler Monopoly Junior
+
+Spillet spilles af 2 til 4 spillere. 
+Hver spiller starter med 35M.
+Spillere køber den grund de lander på.
+En spiller kan ikke købe en grund der er ejet.
+Den sidste spiller med positiv balance vinder spillet.
