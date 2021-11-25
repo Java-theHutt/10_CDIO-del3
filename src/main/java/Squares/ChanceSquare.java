@@ -84,7 +84,7 @@ public class ChanceSquare extends Square {
                     } else if (x == 3) {
                         player.getPiece().movePieceTo(square3Number);
                         bool = false;
-                    } else if (x == 4) {
+                    } else{
                         player.getPiece().movePieceTo(square4Number);
                         bool = false;
                     }
