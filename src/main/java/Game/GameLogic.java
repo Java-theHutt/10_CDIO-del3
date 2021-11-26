@@ -83,7 +83,9 @@ public class GameLogic {
         }
     }
     private void playerPassesStart(Player player){
-        if (player.getPiece().getLastPiecePosition() > player.getPiece().getPiecePosition()){
+        //Checks if last position is greater than current, and if last position was jail.
+        if (player.getPiece().getLastPiecePosition() > player.getPiece().getPiecePosition()
+                && player.getPiece().getLastPiecePosition() != 18){
             System.out.println("Du har passeret start, modtag 2kr af banken.");
             player.updateScore(2);
             monopolyGUI.showMessage("Du har passeret start, modtag 2kr af banken.\nDin balance er nu: " + player.getBalance());

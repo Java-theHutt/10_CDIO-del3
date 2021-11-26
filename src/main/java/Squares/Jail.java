@@ -16,6 +16,7 @@ public class Jail extends Square {
         Takes 3$ from the player, and puts it on the loose change square
         */
 
+        player.getPiece().setLastPiecePosition();
         player.getPiece().movePieceTo(6);
         player.updateScore(-3);
         System.out.println("Du er smidt i fængsel og betaler 3kr for at komme ud igen!");
